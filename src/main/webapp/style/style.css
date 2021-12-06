@@ -1,0 +1,344 @@
+main {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+     flex-direction: column;
+     align-items: center;
+  background-color: brown;
+  border: 1px solid black;
+  
+ 
+}
+
+ main h2{
+	display:flex;
+}
+
+
+
+summary {
+  cursor: row-resize;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 5px outset black;
+  margin: 3px;
+  background-color: gainsboro;
+}
+
+img {
+  cursor: -webkit-grab;
+  cursor: grab;
+  vertical-align: middle;
+  width: auto;
+  min-width: 20px;
+  max-width: 100px;
+  height: auto;
+  min-height: 20px;
+  max-height: 100px;
+  padding: 3px;
+}
+
+header {
+  width: 90%;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding: 1% 0;
+}
+
+header .nom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+header .nom__avatar {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+}
+
+header .nom__entete {
+  font-size: 60pt;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+header .nom__adresse {
+  font-size: 10pt;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+@media (max-width: 768px) {
+  header {
+    width: 90%;
+  }
+  header .nom {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  header .nom__entete {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+  header .nom__adresse {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  header__avatar {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
+.diplome {
+  font-size: 20pt;
+  font-weight: 700;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.details-diplome {
+  font-size: 16pt;
+  font-style: italic;
+  color: grey;
+  padding: 1px 1px 5%;
+}
+
+.XP-head {
+  font-size: 20pt;
+  font-weight: 700;
+  border-bottom: 1px solid black;
+}
+
+.XP-head a {
+  color: black;
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
+
+.details-XP {
+  font-size: 16pt;
+  color: grey;
+  padding-bottom: 1%;
+  border-bottom: 1px solid black;
+  text-align: justify;
+}
+
+.date-XP {
+  text-align: center;
+}
+
+.annexe-cv {
+  background-color: #b8b9bb;
+  border: 1px solid black;
+  width: 15%;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1%;
+}
+
+.annexe-cv__soft-skills {
+  padding: 2% 12%;
+  border-bottom: 1px solid black;
+}
+
+.annexe-cv__soft-skills h3 {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+.annexe-cv__soft-skills h5 {
+  font-size: 12pt;
+}
+
+.annexe-cv__soft-skills h6 {
+  font-size: 10pt;
+}
+
+@media (max-width: 768px) {
+  .annexe-cv {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+    width: 100%;
+  }
+  .annexe-cv__soft-skills {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1030px) {
+  .annexe-cv {
+    width: 100%;
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+  .annexe-cv__soft-skills h3 {
+    font-size: 18pt;
+    font-weight: bold;
+  }
+  .annexe-cv__soft-skills h5 {
+    font-size: 14pt;
+  }
+  .annexe-cv__soft-skills h6 {
+    font-size: 12pt;
+  }
+}
+
+.corps-cv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap-reverse;
+      flex-wrap: wrap-reverse;
+  width: 100%;
+  border: 1px solid black;
+  background-color: aliceblue;
+}
+
+.corps-cv h2 {
+  font-size: 30pt;
+  padding-bottom: 2%;
+  border-bottom: 1px solid black;
+}
+
+.corps-cv__droite {
+  width: 44%;
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  background-color: aliceblue;
+  text-align: center;
+  padding-left: 1%;
+}
+
+.corps-cv__gauche {
+  width: 33%;
+  padding-right: 2%;
+  background-color: aliceblue;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .corps-cv__droite, .corps-cv__gauche {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+@media (max-width: 1030px) {
+  .corps-cv__droite, .corps-cv__gauche {
+    width: 100%;
+  }
+}
+
+.Copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  font-size: 10pt;
+}
+
+.property {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.SASS {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.KonamiIntro a {
+  color: gainsboro;
+}
+
+footer {
+  width: 90%;
+}
+
+@media (max-width: 768px) {
+  footer {
+    width: 100%;
+  }
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 5px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
+.nav-mobile {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .nav-mobile {
+    display: block;
+    margin: 0 auto;
+  }
+}
+.listing{
+display: flex; 	
+justify-content: space-between;
+}
+.listes-preset{
+	display:flex;
+	width: 80%;
+	flex-direction: column;
+	align-items: stretch;
+    align-content: stretch;
+    justify-content: flex-start;
+}
+
+.item-liste{
+	display:flex;
+}
+.new-list{
+	display:flex;
+	justify-content: center;
+}
