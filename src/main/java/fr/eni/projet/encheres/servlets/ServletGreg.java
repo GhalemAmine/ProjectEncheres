@@ -1,4 +1,4 @@
-package fr.eni.exempledao.servlets;
+package fr.eni.projet.encheres.servlets;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,16 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServetAlex
+ * Servlet implementation class ServletGreg
  */
-@WebServlet("/ServetAlex")
-public class ServetAlex extends HttpServlet {
+@WebServlet("/ServletGreg")
+public class ServletGreg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ServetAlex() {
+    public ServletGreg() {
         super();
         // TODO Auto-generated constructor stub
     }

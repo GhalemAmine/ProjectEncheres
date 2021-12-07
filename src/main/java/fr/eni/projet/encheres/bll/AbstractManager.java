@@ -1,4 +1,4 @@
-package fr.eni.exempledao.bll;
+package fr.eni.projet.encheres.bll;
 
 import java.util.List;
 

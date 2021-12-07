@@ -1,10 +1,10 @@
-package fr.eni.exempledao.dal.jdbc;
+package fr.eni.projet.encheres.dal.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.eni.exempledao.dal.DAO;
+import fr.eni.projet.encheres.dal.DAO;
 
 /**
  * @author William "Gaspode" Freyer

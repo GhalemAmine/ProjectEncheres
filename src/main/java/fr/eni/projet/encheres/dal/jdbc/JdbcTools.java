@@ -1,4 +1,4 @@
-package fr.eni.exempledao.dal.jdbc;
+package fr.eni.projet.encheres.dal.jdbc;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

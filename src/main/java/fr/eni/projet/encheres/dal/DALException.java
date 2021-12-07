@@ -1,4 +1,4 @@
-package fr.eni.exempledao.dal;
+package fr.eni.projet.encheres.dal;
 
 public class DALException extends Exception {
 	/**

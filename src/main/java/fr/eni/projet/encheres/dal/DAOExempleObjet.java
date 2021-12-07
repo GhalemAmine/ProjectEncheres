@@ -1,6 +1,6 @@
-package fr.eni.exempledao.dal;
+package fr.eni.projet.encheres.dal;
 
-import fr.eni.exempledao.bo.ExempleObjet;
+import fr.eni.projet.encheres.bo.ExempleObjet;
 
 /**
  * @author William "Gaspode" Freyer

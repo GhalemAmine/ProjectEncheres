@@ -1,4 +1,4 @@
-package fr.eni.exempledao.dal.jdbc;
+package fr.eni.projet.encheres.dal.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.exempledao.dal.ConnectionProvider;
-import fr.eni.exempledao.dal.DALException;
+import fr.eni.projet.encheres.dal.ConnectionProvider;
+import fr.eni.projet.encheres.dal.DALException;
 
 /**
  * @author William "Gaspode" Freyer

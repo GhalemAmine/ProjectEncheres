@@ -1,4 +1,4 @@
-package fr.eni.exempledao.bo;
+package fr.eni.projet.encheres.bo;
 
 /**
  * @author William "Gaspode" Freyer

@@ -1,12 +1,12 @@
-package fr.eni.exempledao.bll;
+package fr.eni.projet.encheres.bll;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.eni.exempledao.bo.ExempleObjet;
-import fr.eni.exempledao.dal.DALException;
-import fr.eni.exempledao.dal.DAO;
-import fr.eni.exempledao.dal.DAOFactory;
+import fr.eni.projet.encheres.bo.ExempleObjet;
+import fr.eni.projet.encheres.dal.DALException;
+import fr.eni.projet.encheres.dal.DAO;
+import fr.eni.projet.encheres.dal.DAOFactory;
 
 /**
  * @author William "Gaspode" Freyer

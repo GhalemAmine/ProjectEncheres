@@ -1,6 +1,6 @@
-package fr.eni.exempledao.dal;
+package fr.eni.projet.encheres.dal;
 
-import fr.eni.exempledao.dal.jdbc.exempleobjet.ExempleObjetDAOJdbcImpl;
+import fr.eni.projet.encheres.dal.jdbc.exempleobjet.ExempleObjetDAOJdbcImpl;
 
 /**
  * @author William "Gaspode" Freyer

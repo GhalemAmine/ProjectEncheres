@@ -1,16 +1,16 @@
-package fr.eni.exempledao.dal.jdbc.exempleobjet;
+package fr.eni.projet.encheres.dal.jdbc.exempleobjet;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import fr.eni.exempledao.bo.ExempleObjet;
-import fr.eni.exempledao.dal.ConnectionProvider;
-import fr.eni.exempledao.dal.DALException;
-import fr.eni.exempledao.dal.DAOExempleObjet;
-import fr.eni.exempledao.dal.jdbc.DAOJdbcImpl;
-import fr.eni.exempledao.dal.jdbc.JdbcTools;
+import fr.eni.projet.encheres.bo.ExempleObjet;
+import fr.eni.projet.encheres.dal.ConnectionProvider;
+import fr.eni.projet.encheres.dal.DALException;
+import fr.eni.projet.encheres.dal.DAOExempleObjet;
+import fr.eni.projet.encheres.dal.jdbc.DAOJdbcImpl;
+import fr.eni.projet.encheres.dal.jdbc.JdbcTools;
 
 /**
  * @author William "Gaspode" Freyer

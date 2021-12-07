@@ -1,4 +1,4 @@
-package fr.eni.exempledao.servlets;
+package fr.eni.projet.encheres.servlets;
 
 import java.io.IOException;
 
