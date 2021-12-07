@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.projet.encheres.bo.Adresse;
-import fr.eni.projet.encheres.bo.Articles;
+import fr.eni.projet.encheres.bo.Article;
 
 /**
  * @author William
@@ -18,7 +18,7 @@ public class Vendeur extends Utilisateur {
 	private int credit = 0;
 
 	// TODO Remplacer String par Article
-	private List<Articles> listeArticles = new ArrayList<Articles>();
+	private List<Article> listeArticles = new ArrayList<Article>();
 
 	public Vendeur() {
 
@@ -40,15 +40,15 @@ public class Vendeur extends Utilisateur {
 		this.credit = credit;
 	}
 
-	public List<Articles> getListeArticles() {
+	public List<Article> getListeArticles() {
 		return this.listeArticles;
 	}
 
-	public void setListeArticles(List<Articles> listeArticles) {
+	public void setListeArticles(List<Article> listeArticles) {
 		this.listeArticles = listeArticles;
 	}
 
-	public void ajouterArticle(Articles article) {
+	public void ajouterArticle(Article article) {
 		this.listeArticles.add(article);
 		// ne pas oublier de set l'utilisateur sur l'article à ce moment aussi
 	}
