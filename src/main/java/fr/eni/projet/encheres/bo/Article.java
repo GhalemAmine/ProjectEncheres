@@ -9,9 +9,9 @@ import java.sql.Date;
  * @author Greg
  *
  */
-public class Articles {
+public class Article {
 
-	private int idArticle;
+	private int id;
 	private String nomArticle;
 	private String description;
 	private Date dateDebut;
@@ -36,10 +36,10 @@ public class Articles {
 	 * @param prixVente
 	 * @param etatVente
 	 */
-	public Articles(int idArticle, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+	public Article(int id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
 			int prixVente, int etatVente) {
 		super();
-		this.idArticle = idArticle;
+		this.id = id;
 		this.nomArticle = nomArticle;
 		this.description = description;
 		this.dateDebut = dateDebut;
@@ -49,12 +49,12 @@ public class Articles {
 		this.etatVente = etatVente;
 	}
 
-	public int getIdArticle() {
-		return this.idArticle;
+	public int getId() {
+		return this.id;
 	}
 
-	public void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNomArticle() {
@@ -120,7 +120,7 @@ public class Articles {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Articles [idArticle=").append(this.idArticle).append(", nomArticle=").append(this.nomArticle)
+		builder.append("Articles [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
 				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
 				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
 				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
