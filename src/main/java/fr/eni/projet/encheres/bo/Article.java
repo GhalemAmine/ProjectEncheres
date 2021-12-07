@@ -5,13 +5,15 @@ package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
 
+import fr.eni.projet.encheres.bo.user.Utilisateur;
+
 /**
  * @author Greg
  *
  */
 public class Article {
 
-	private int id;
+	private Integer id;
 	private String nomArticle;
 	private String description;
 	private Date dateDebut;
@@ -20,11 +22,56 @@ public class Article {
 	private int prixVente;
 	private int etatVente;
 
-	// public List<Encheres> listeEncheres = new ArrayList<Encheres>()
+	// récupération données utilisateur
+	private Utilisateur utilisateur;
+	private int idUtilisateur;
 
-	// get idCategorie(); A faire
+	// Recupération idUtilisateur
+	public int getIdUtilisateur() {
+		idUtilisateur = utilisateur.getId();
+		return this.idUtilisateur;
+	}
 
-	// get idUtilisateur(); A faire
+	// récupération données Catégorie
+	private Categorie categorie;
+	private int idCategorie;
+
+	// récupération idCatégorie
+	public int getIdCategorie() {
+		idCategorie = categorie.getIdCatégorie();
+		return this.idCategorie;
+	}
+
+	// liste d'encheres par article
+	// public List<Encheres> listeEncheres = new ArrayList<Encheres>();
+
+	/**
+	 * 
+	 */
+	public Article() {
+		super();
+	}
+
+	/**
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param etatVente
+	 */
+	public Article(String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial, int prixVente,
+			int etatVente) {
+		super();
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.etatVente = etatVente;
+	}
 
 	/**
 	 * @param idArticle
@@ -36,7 +83,7 @@ public class Article {
 	 * @param prixVente
 	 * @param etatVente
 	 */
-	public Article(int id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
 			int prixVente, int etatVente) {
 		super();
 		this.id = id;
@@ -49,11 +96,11 @@ public class Article {
 		this.etatVente = etatVente;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
