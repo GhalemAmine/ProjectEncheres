@@ -1,7 +1,14 @@
+/**
+ * 
+ */
 package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
 
+/**
+ * @author Greg
+ *
+ */
 public class Articles {
 
 	private int idArticle;
@@ -13,12 +20,24 @@ public class Articles {
 	private int prixVente;
 	private int etatVente;
 
-	/*
-	 * A faire List<Encheres> listeEncheres = new ArrayList<Encheres>();
-	 */
+	// public List<Encheres> listeEncheres = new ArrayList<Encheres>()
 
+	// get idCategorie(); A faire
+
+	// get idUtilisateur(); A faire
+
+	/**
+	 * @param idArticle
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param etatVente
+	 */
 	public Articles(int idArticle, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
-			int prixVente, int etatArticle, int etatVente) {
+			int prixVente, int etatVente) {
 		super();
 		this.idArticle = idArticle;
 		this.nomArticle = nomArticle;
@@ -95,14 +114,9 @@ public class Articles {
 	}
 
 	/*
-	 * public void getIdCategorie() { A faire }
-	 */
-
-	/*
-	 * public void getIdUtilisateur() { A faire }
+	 * toString, avant liaison avec autres class
 	 * 
 	 */
-
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
