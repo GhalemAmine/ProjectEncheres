@@ -4,6 +4,11 @@ main{
     border: 5px outset black;
     margin: 3px;
 
+    .wrapper{
+        display: flex;
+        background-color: aliceblue;
+    }
+
     h1{
         background-color: chocolate;
             border: 3px outset black;
@@ -65,6 +70,8 @@ main{
                 background-color: blueviolet;
                     border: 3px outset black;
                     margin: 3px;
+
+                    
                 
             p{
                 background-color: darkblue;

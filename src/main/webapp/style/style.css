@@ -5,6 +5,13 @@ main {
   margin: 3px;
 }
 
+main .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: aliceblue;
+}
+
 main h1 {
   background-color: chocolate;
   border: 3px outset black;
