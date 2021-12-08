@@ -6,7 +6,7 @@ package fr.eni.projet.encheres.bo.user;
 import fr.eni.projet.encheres.bo.Adresse;
 
 /**
- * @author William
+ * @author William Freyer
  *
  */
 public class Administrateur extends Vendeur {

@@ -10,26 +10,25 @@ import fr.eni.projet.encheres.bo.Adresse;
 import fr.eni.projet.encheres.bo.Article;
 
 /**
- * @author William
+ * @author William Freyer
  *
  */
 public class Vendeur extends Utilisateur {
 
 	private int credit = 0;
 
-	// TODO Remplacer String par Article
 	private List<Article> listeArticles = new ArrayList<Article>();
 
 	public Vendeur() {
 
 	}
 
-	public Vendeur(String nom, String prenom, String pseudo, String email, Adresse adresse) {
-		super(nom, prenom, pseudo, email, adresse);
+	public Vendeur(String nom, String prenom, String pseudo, String mdp, String email, Adresse adresse) {
+		super(nom, prenom, pseudo, mdp, email, adresse);
 	}
 
-	public Vendeur(Integer id, String nom, String prenom, String pseudo, String email, Adresse adresse) {
-		super(id, nom, prenom, pseudo, email, adresse);
+	public Vendeur(Integer id, String nom, String prenom, String pseudo, String mdp, String email, Adresse adresse) {
+		super(id, nom, prenom, pseudo, mdp, email, adresse);
 	}
 
 	public int getCredit() {
@@ -54,8 +53,10 @@ public class Vendeur extends Utilisateur {
 	}
 
 	@Override
-	protected void setAdministrateur(boolean administrateur) {
+	public void setAdministrateur(boolean administrateur) {
+		if(!this.isAdministrateur())
 		System.err.println("tu pensais vraiment qu'avec tes droits de base tu pourrais devenir un Admin ?");
+		
 	}
 
 }
