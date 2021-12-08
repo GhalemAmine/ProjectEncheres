@@ -149,8 +149,9 @@ public class UtilisateurJdbcImpl extends DAOJdbcImpl<Utilisateur> implements DAO
 
 	@Override
 	public Adresse recupAdresse(Integer id) throws DALException {
-		// TODO Auto-generated method stub
-		return null;
+		Utilisateur user = selectByID(id);
+		
+		return user.getAdresse();
 	}
 
 }
