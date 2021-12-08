@@ -22,7 +22,7 @@
 <header>Page Temporaire pour initialisation application</header>
 <main>
 <h1>C'est ici que tout commence</h1>
-<a href="<%=this.getServletContext().getContextPath()%>/ServletAccueil">Cliquez ici pour voir les enchères</a>
+<a href="ServletAccueil">Cliquez ici pour voir les enchères</a>
 </main>
 <footer>copyright - Will E. Cefes </footer>
 </body>

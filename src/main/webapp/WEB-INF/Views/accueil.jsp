@@ -22,7 +22,7 @@
 <header>
 <div class="nomAppli"> ENI-Encheres</div>
 <h1 class="titrePage">Liste des enchères</h1>
-<div class="signIn"> <a href="ProjectEncheres/ServletSignIn" color=red>S'inscrire - Se connecter</a> </div>
+<div class="signIn"> <a href="ServletSignIn">S'inscrire - Se connecter</a> </div>
 
 </header>
 <main>
