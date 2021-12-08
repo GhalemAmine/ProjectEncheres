@@ -1,7 +1,5 @@
 package fr.eni.projet.encheres.bo;
 
-import fr.eni.projet.encheres.bo.Adresse;
-
 /**
  * @author Alexandre Mchich
  *
@@ -9,27 +7,27 @@ import fr.eni.projet.encheres.bo.Adresse;
 
 public class Retrait {
 
-	private Integer idRetrait;
-	private Adresse Adresse;
+	private Article article;
+	private Adresse adresse;
 	
-	public Retrait(Integer idRetrait, Adresse Adresse) {
+	public Retrait(Integer idRetrait, Adresse adresse, Article article) {
 		super();
-		this.idRetrait = idRetrait;
-		this.Adresse = 	Adresse;
+		this.article = article;
+		this.adresse = 	adresse;
 	}
 
-	public Integer getIdRetrait() {
-		return this.idRetrait;
+	public Article getarticle() {
+		return this.article;
 	}
 
-	public void setIdRetrait(Integer idRetrait) {
-		this.idRetrait = idRetrait;
+	public void setArticle(Article article) {
+		this.article = article;
 	}
-	public Adresse getAdresse() {
-		return this.Adresse;
+	public Adresse getadresse() {
+		return this.adresse;
 	}
 
-	public void setAdresse(Adresse Adresse) {
-		this.Adresse = Adresse;
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
 	}
 }
