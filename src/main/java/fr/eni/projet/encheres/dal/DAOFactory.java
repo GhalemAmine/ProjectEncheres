@@ -3,10 +3,10 @@ package fr.eni.projet.encheres.dal;
 import fr.eni.projet.encheres.bo.Article;
 import fr.eni.projet.encheres.bo.Categorie;
 import fr.eni.projet.encheres.bo.user.Utilisateur;
+import fr.eni.projet.encheres.dal.jdbc.ArticleDAOJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.UtilisateurJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.exempleobjet.ExempleObjetDAOJdbcImpl;
-import fr.eni.projet.encheres.dal.jdbc.objets.ArticleDAOJdbcImpl;
-import fr.eni.projet.encheres.dal.jdbc.CategorieJdbcImpl;
+
 /**
  * @author William "Gaspode" Freyer
  *
@@ -27,6 +27,7 @@ public class DAOFactory {
 		DAOArticle articleDAO = new ArticleDAOJdbcImpl();
 		return articleDAO;
 	}
+
 	public static DAO<Categorie> getCategorieDAO() {
 		DAOCategorie categorieDAO = new UtilisateurJdbcImpl();
 		return categorieDAO;
