@@ -7,23 +7,36 @@ package fr.eni.projet.encheres.bo;
 
 public class Categorie {
 
-	private int idCatégorie;
-	private String nomCategorie;
-	public Categorie (int idcategorie, String nomCategorie, int idCatégorie) {
+	private int id;
+	private String nom;
+
+	public Categorie(int id, String nom) {
 		super();
-		this.setIdCatégorie(idCatégorie);
-		this.setNomCategorie(nomCategorie);
+		this.setid(id);
+		this.setnom(nom);
 	}
-	public String getNomCategorie() {
-		return nomCategorie;
+
+	public Categorie(String nom) {
+		super();
+		this.setnom(nom);
 	}
-	public void setNomCategorie(String nomCategorie) {
-		this.nomCategorie = nomCategorie;
+	public Categorie() {
+		super();
 	}
-	public int getIdCatégorie() {
-		return idCatégorie;
+
+	public String getnom() {
+		return nom;
 	}
-	public void setIdCatégorie(int idCatégorie) {
-		this.idCatégorie = idCatégorie;
+
+	public void setnom(String nom) {
+		this.nom = nom;
+	}
+
+	public int getid() {
+		return id;
+	}
+
+	public void setid(int id) {
+		this.id = id;
 	}
 }
