@@ -18,6 +18,7 @@ public abstract class Utilisateur {
 	private String telephone;
 	private String email;
 	private Adresse adresse;
+	private String mdp;
 	private boolean administrateur;
 
 	public Utilisateur() {
@@ -27,25 +28,27 @@ public abstract class Utilisateur {
 
 	protected Utilisateur(boolean administrateur) {
 		super();
-		this.administrateur = true;
+		this.administrateur = administrateur;
 	}
 
-	public Utilisateur(String nom, String prenom, String pseudo, String email, Adresse adresse) {
+	public Utilisateur(String nom, String prenom, String pseudo,String mdp, String email, Adresse adresse) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.pseudo = pseudo;
+		this.setMdp(mdp);
 		this.email = email;
 		this.adresse = adresse;
 		this.administrateur = false;
 	}
 
-	public Utilisateur(Integer id, String nom, String prenom, String pseudo, String email, Adresse adresse) {
+	public Utilisateur(Integer id, String nom, String prenom, String pseudo,String mdp, String email, Adresse adresse) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.pseudo = pseudo;
+		this.setMdp(mdp);
 		this.email = email;
 		this.adresse = adresse;
 		this.administrateur = false;
@@ -83,6 +86,20 @@ public abstract class Utilisateur {
 		this.pseudo = pseudo;
 	}
 
+	/**
+	 * @return the mdp
+	 */
+	public String getMdp() {
+		return mdp;
+	}
+
+	/**
+	 * @param mdp the mdp to set
+	 */
+	public void setMdp(String mdp) {
+		this.mdp = mdp;
+	}
+
 	public String getTelephone() {
 		return this.telephone;
 	}
@@ -111,7 +128,7 @@ public abstract class Utilisateur {
 		return this.administrateur;
 	}
 
-	protected void setAdministrateur(boolean administrateur) {
+	public void setAdministrateur(boolean administrateur) {
 		this.administrateur = administrateur;
 	}
 

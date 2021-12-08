@@ -39,6 +39,11 @@ public class ExempleObjetDAOJdbcImpl extends DAOJdbcImpl<ExempleObjet> implement
 //		int index = 1;
 //		stmt.setString(index++, t.getNom());
 //		stmt.setInt(index++, t.getIdRepas());
+		
+		// ajouter l'id pour update
+//		if(exOb.getId()!=null) {
+//			stmt.setInt(index++, exOb.getId());
+//		}
 	}
 
 	@Override
