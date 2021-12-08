@@ -134,6 +134,18 @@ header div p {
   margin: 3px;
 }
 
+div {
+  background-color: antiquewhite;
+  border: 3px outset black;
+  margin: 3px;
+}
+
+div .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 footer {
   width: 90%;
 }
