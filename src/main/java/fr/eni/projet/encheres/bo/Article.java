@@ -32,14 +32,28 @@ public class Article {
 		return this.idUtilisateur;
 	}
 
+	/**
+	 * @param idUtilisateur the idUtilisateur to set
+	 */
+	public void setIdUtilisateur(int idUtilisateur) {
+		this.idUtilisateur = idUtilisateur;
+	}
+
 	// récupération données Catégorie
 	private Categorie categorie;
 	private int idCategorie;
 
 	// récupération idCatégorie
 	public int getIdCategorie() {
-		idCategorie = categorie.getIdCatégorie();
+		idCategorie = categorie.getId();
 		return this.idCategorie;
+	}
+
+	/**
+	 * @param idCategorie the idCategorie to set
+	 */
+	public void setIdCategorie(int idCategorie) {
+		this.idCategorie = idCategorie;
 	}
 
 	// liste d'encheres par article
@@ -94,6 +108,32 @@ public class Article {
 		this.prixInitial = prixInitial;
 		this.prixVente = prixVente;
 		this.etatVente = etatVente;
+	}
+
+	/**
+	 * @param id
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param etatVente
+	 * @param idUtilisateur
+	 * @param idCategorie
+	 */
+	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+			int prixVente, int idUtilisateur, int idCategorie) {
+		super();
+		this.id = id;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.idUtilisateur = idUtilisateur;
+		this.idCategorie = idCategorie;
 	}
 
 	public Integer getId() {
