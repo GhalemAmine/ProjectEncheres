@@ -110,6 +110,33 @@ public class Article {
 		this.etatVente = etatVente;
 	}
 
+	/**
+	 * @param id
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param utilisateur
+	 * @param idUtilisateur
+	 * @param categorie
+	 * @param idCategorie
+	 */
+	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+			int prixVente, int idUtilisateur, int idCategorie) {
+		super();
+		this.id = id;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.idUtilisateur = idUtilisateur;
+		this.idCategorie = idCategorie;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
