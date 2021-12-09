@@ -27,6 +27,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 	String sqlSelectByMotClef = "select id, nomArticle, description, dateDebutEnchere, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES where nomArticle like ? "
 			+ " or description like ?";
 	String sqlSelectByCategorie = "select id, nomArticle, description, dateDebutEnchre, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idCategorie=?";
+	String sqlSelectByUtilisateur = "select id, nomArticle, description, dateDebutEnchre, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idUtilisateur=?";
 
 	public ArticleDAOJdbcImpl() {
 		setSqlDeleteByID(sqlDeleteByID);
@@ -125,6 +126,27 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		Article a = null;
 		try (Connection con = ConnectionProvider.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
 			stmt.setInt(1, idCategorie);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
+						rs.getDate("dateDebutEnchere"), rs.getDate("dateFinEnchere"), rs.getInt("prixInitial"),
+						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
+			}
+			liste.add(a);
+
+		} catch (SQLException e) {
+			throw new DALException("erreur de requête SelectAll", e);
+		}
+		return liste;
+	}
+
+	@Override
+	public List<Article> selectByUtilisateur(int idUtilisateur) throws DALException {
+		String sql = sqlSelectByUtilisateur;
+		List<Article> liste = new ArrayList<Article>();
+		Article a = null;
+		try (Connection con = ConnectionProvider.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+			stmt.setInt(1, idUtilisateur);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
