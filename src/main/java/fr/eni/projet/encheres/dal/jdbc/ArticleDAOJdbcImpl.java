@@ -63,7 +63,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 	@Override
 	public Article createFromRS(ResultSet rs) throws SQLException {
 		Article a = new Article();
-		
+
 		a.setId(rs.getInt("id"));
 		a.setNomArticle(rs.getString("nom"));
 		a.setDescription(rs.getString("description"));
