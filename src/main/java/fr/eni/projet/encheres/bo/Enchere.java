@@ -16,8 +16,8 @@ import java.util.ArrayList;
 
 public class Enchere {
 
-	private Article article;
-	private Vendeur vendeur;
+	private Integer idArticle;
+	private Integer idVendeur;
 	private Date dateEnchere;
 	private int montantEnchere;
 	// public List<Vendeur> listeVenseurs = new ArrayList<Vendeur>();
@@ -28,8 +28,8 @@ public class Enchere {
 
 	public Enchere(Date dateEnchere, int montantEnchere, Article article, Vendeur vendeur) {
 
-		this.vendeur = vendeur;
-		this.article = article;
+		this.idVendeur = vendeur.getId();
+		this.idArticle = article.getId();
 		this.dateEnchere = dateEnchere;
 		this.montantEnchere = montantEnchere;
 
@@ -51,20 +51,29 @@ public class Enchere {
 		this.montantEnchere = montantEnchere;
 	}
 
-	public Article getArticle() {
-		return article;
+	public Integer getIdArticle() {
+		return idArticle;
 	}
 
-	public void setArticle(Article article) {
-		this.article = article;
+	public void setIdArticle(Article article) {
+		this.idArticle = article.getId();
 	}
 
-	public Vendeur getVendeur() {
-		return vendeur;
+	public Integer getIdVendeur() {
+		return idVendeur;
 	}
 
-	public void setVendeur(Vendeur vendeur) {
-		this.vendeur = vendeur;
+	public void setIdVendeur(Vendeur vendeur) {
+		this.idVendeur = vendeur.getId();
+	}
+
+	public void setIdArticle(Integer id) {
+		this.idArticle = id;
+		
+	}
+
+	public void setIdVendeur(Integer id) {
+		this.idVendeur= id;
 	}
 
 }
