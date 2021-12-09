@@ -1,6 +1,8 @@
 package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
+import java.time.LocalDate;
+
 import fr.eni.projet.encheres.bo.user.Vendeur;
 import java.util.List;
 import java.util.ArrayList;
@@ -26,6 +28,15 @@ public class Enchere {
 
 	}
 
+	public Enchere(int montantEnchere, Article article, Vendeur vendeur) {
+
+		this.idVendeur = vendeur.getId();
+		this.idArticle = article.getId();
+		this.dateEnchere = Date.valueOf(LocalDate.now());
+		this.montantEnchere = montantEnchere;
+
+	}
+	
 	public Enchere(Date dateEnchere, int montantEnchere, Article article, Vendeur vendeur) {
 
 		this.idVendeur = vendeur.getId();
@@ -36,6 +47,11 @@ public class Enchere {
 	}
 
 	public Date getDateEnchere() {
+		if(dateEnchere==null) {
+			this.dateEnchere = Date.valueOf(LocalDate.now());
+		}
+		
+		
 		return dateEnchere;
 	}
 
