@@ -6,6 +6,6 @@ import fr.eni.projet.encheres.bo.Categorie;
  * @author Alexandre Mchich
  *
  */
-public interface Daocategorie extends DAO<Categorie> {
+public interface DAOCategorie extends DAO<Categorie> {
 
 }

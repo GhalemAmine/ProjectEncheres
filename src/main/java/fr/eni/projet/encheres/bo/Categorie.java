@@ -3,40 +3,44 @@ package fr.eni.projet.encheres.bo;
 /**
  * @author Alexandre Mchich
  *
+ *
+ * @update William
+ * 
+ *         Remplacement de int id par Integer id Reorganisation des
+ *         constructeurs Correction nomemclature
  */
 
 public class Categorie {
 
-	private int id;
+	private Integer id;
 	private String nom;
 
-	public Categorie(int id, String nom) {
-		super();
-		this.setid(id);
-		this.setnom(nom);
+	public Categorie() {
 	}
 
 	public Categorie(String nom) {
 		super();
-		this.setnom(nom);
-	}
-	public Categorie() {
-		super();
+		this.setNom(nom);
 	}
 
-	public String getnom() {
-		return nom;
-	}
-
-	public void setnom(String nom) {
+	public Categorie(Integer id, String nom) {
+		this.id = id;
 		this.nom = nom;
 	}
 
-	public int getid() {
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public Integer getId() {
 		return id;
 	}
 
-	public void setid(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 }

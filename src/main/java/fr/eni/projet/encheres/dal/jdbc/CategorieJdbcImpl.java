@@ -9,6 +9,7 @@ import fr.eni.projet.encheres.bo.Categorie;
 import fr.eni.projet.encheres.bo.ExempleObjet;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.DALException;
+import fr.eni.projet.encheres.dal.DAOCategorie;
 import fr.eni.projet.encheres.dal.DAOExempleObjet;
 import fr.eni.projet.encheres.dal.jdbc.DAOJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.JdbcTools;
@@ -17,7 +18,7 @@ import fr.eni.projet.encheres.dal.jdbc.JdbcTools;
  * @author Alexandre Mchich
  *
  */
-public class CategorieJdbcImpl extends DAOJdbcImpl<Categorie> implements DaoCategorie {
+public class CategorieJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCategorie {
 
 	String sqlDeleteByID = "delete from Categorie where id=?";
 	String sqlInsert = "insert into Categorie(XXXXX, XXXXXXX) values (?,?)";

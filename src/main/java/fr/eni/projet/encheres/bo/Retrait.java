@@ -2,28 +2,36 @@ package fr.eni.projet.encheres.bo;
 
 /**
  * @author Alexandre Mchich
- *
+ * 
+ * 
+ * @update by William : Changement de Article article en Integer idArticle Ajout
+ *         d'un constructeur vide Modification nomemclature
  */
 
 public class Retrait {
 
-	private Article article;
+	private Integer IdArticle;
 	private Adresse adresse;
-	
-	public Retrait(Integer idRetrait, Adresse adresse, Article article) {
-		super();
-		this.article = article;
-		this.adresse = 	adresse;
+
+	public Retrait() {
+
 	}
 
-	public Article getarticle() {
-		return this.article;
+	public Retrait(Adresse adresse, Article article) {
+		this.IdArticle = article.getId();
+		this.adresse = adresse;
 	}
 
-	public void setArticle(Article article) {
-		this.article = article;
+	public Integer getIdArticle() {
+
+		return this.IdArticle;
 	}
-	public Adresse getadresse() {
+
+	public void setIdArticle(Article article) {
+		this.IdArticle = article.getId();
+	}
+
+	public Adresse getAdresse() {
 		return this.adresse;
 	}
 

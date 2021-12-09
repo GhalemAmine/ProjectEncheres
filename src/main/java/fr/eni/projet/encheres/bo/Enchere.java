@@ -4,8 +4,13 @@ import java.sql.Date;
 import fr.eni.projet.encheres.bo.user.Vendeur;
 import java.util.List;
 import java.util.ArrayList;
+
 /**
  * @author Alexandre Mchich
+ *
+ *
+ * @update William Ajout d'un constructeur vide correction nomenclature
+ *         suppression de idEnchere dans le constructeur
  *
  */
 
@@ -15,16 +20,19 @@ public class Enchere {
 	private Vendeur vendeur;
 	private Date dateEnchere;
 	private int montantEnchere;
-	//public List<Vendeur> listeVenseurs = new ArrayList<Vendeur>();
+	// public List<Vendeur> listeVenseurs = new ArrayList<Vendeur>();
 
-	public Enchere(int idEnchere, Date dateEnchere, int montantEnchere, Article article, Vendeur vendeur) {
-		super();
+	public Enchere() {
+
+	}
+
+	public Enchere(Date dateEnchere, int montantEnchere, Article article, Vendeur vendeur) {
 
 		this.vendeur = vendeur;
 		this.article = article;
 		this.dateEnchere = dateEnchere;
 		this.montantEnchere = montantEnchere;
-		
+
 	}
 
 	public Date getDateEnchere() {
