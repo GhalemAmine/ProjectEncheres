@@ -28,10 +28,10 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere{
 	
 	String sqlDeleteByID = "delete from Encheres where idUtilisateur=? AND idArticle=?";
 	String sqlInsert = "insert into Encheres(idUtilisateur, idArticle, dateEnchere, montantEnchere) values (?,?,?,?)";
-	String sqlSelectByID = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERE where idUtilisateur=? AND idArticle=?";
-	String sqlSelectAll = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERE";
-	String sqlUpdate = "update ENCHERE set idUtilisateur=?, dateEnchere=?, montantEnchere=?, where idUtilisateur=? AND idArticle=?";
-	String sqlTruncate = "truncate table ENCHERE";
+	String sqlSelectByID = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERES where idUtilisateur=? AND idArticle=?";
+	String sqlSelectAll = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERES";
+	String sqlUpdate = "update ENCHERES set idUtilisateur=?, dateEnchere=?, montantEnchere=?, where idUtilisateur=? AND idArticle=?";
+	String sqlTruncate = "truncate table ENCHERES";
 
 	public EnchereJdbcImpl() {
 		setSqlDeleteByID(sqlDeleteByID);
