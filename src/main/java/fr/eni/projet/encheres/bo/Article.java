@@ -23,63 +23,48 @@ public class Article {
 	private int etatVente;
 
 	// récupération données utilisateur
-	private Utilisateur utilisateur;
-
-	public Utilisateur getUtilisateur() {
-		return this.utilisateur;
-	}
-
-	public void setUtilisateur(Utilisateur user) {
-		this.utilisateur = user;
-	}
-
-//	private int idUtilisateur;
+//	private Integer idUtilisateur;
 //
-//	// Recupération idUtilisateur
-//	public int getIdUtilisateur() {
-//		idUtilisateur = utilisateur.getId();
-//		return this.idUtilisateur;
+//	public Utilisateur getUtilisateur() {
+//		return this.utilisateur;
 //	}
 //
-//	/**
-//	 * @param idUtilisateur the idUtilisateur to set
-//	 */
-//	public void setIdUtilisateur(int idUtilisateur) {
-//		this.idUtilisateur = idUtilisateur;
+//	public void setUtilisateur(Utilisateur user) {
+//		this.utilisateur = user;
 //	}
 
-	// récupération données Catégorie
-	private Categorie categorie;
+	private Integer idUtilisateur;
 
-	/**
-	 * @return the categorie
-	 */
-	public Categorie getCategorie() {
-		return categorie;
+	// Recupération idUtilisateur
+	public Integer getIdUtilisateur() {
+		return this.idUtilisateur;
 	}
 
 	/**
-	 * @param categorie the categorie to set
+	 * @param idUtilisateur the idUtilisateur to set
 	 */
-	public void setCategorie(Categorie categorie) {
-		this.categorie = categorie;
+	public void setIdUtilisateur(Utilisateur user) {
+		this.idUtilisateur = user.getId();
 	}
 
-//	NOTE : toute cette section est dangereuse, et non nécessaire
-//	private int idCategorie;
-//
-//	// récupération idCatégorie
-//	public int getIdCategorie() {
-//		idCategorie = categorie.getId();
-//		return this.idCategorie;
-//	}
-//
-//	/**
-//	 * @param idCategorie the idCategorie to set
-//	 */
-//	public void setIdCategorie(int idCategorie) {
-//		this.idCategorie = idCategorie;
-//	}
+	public void setIdUtilisateur(Integer id) {
+		this.idUtilisateur = id;
+	}
+
+	private Integer idCategorie;
+
+	// Recupération idCategorie
+	public Integer getIdCategorie() {
+		return this.idCategorie;
+	}
+
+	public void setIdCategorie(Categorie cat) {
+		this.idCategorie = cat.getId();
+	}
+
+	public void setIdCategorie(Integer id) {
+		this.idCategorie = id;
+	}
 
 	// liste d'encheres par article
 	// public List<Encheres> listeEncheres = new ArrayList<Encheres>();
@@ -123,7 +108,7 @@ public class Article {
 	 * @param etatVente
 	 */
 	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
-			int prixVente, int etatVente) {
+			int prixVente) {
 		super();
 		this.id = id;
 		this.nomArticle = nomArticle;
@@ -132,7 +117,7 @@ public class Article {
 		this.dateFin = dateFin;
 		this.prixInitial = prixInitial;
 		this.prixVente = prixVente;
-		this.etatVente = etatVente;
+
 	}
 
 	/**
@@ -156,8 +141,33 @@ public class Article {
 		this.dateFin = dateFin;
 		this.prixInitial = prixInitial;
 		this.prixVente = prixVente;
-		this.utilisateur = user;
-		this.categorie = categorie;
+		this.idUtilisateur = user.getId();
+		this.idCategorie = categorie.getId();
+	}
+
+	/**
+	 * @param id
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param idUtilisateur
+	 * @param idCategorie
+	 */
+	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+			int prixVente, Integer idUtilisateur, Integer idCategorie) {
+		super();
+		this.id = id;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.idUtilisateur = idUtilisateur;
+		this.idCategorie = idCategorie;
 	}
 
 	public Integer getId() {
