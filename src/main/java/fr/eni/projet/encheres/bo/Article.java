@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.projet.encheres.bo.user.Utilisateur;
+import fr.eni.projet.encheres.bo.user.Vendeur;
 
 /**
  * @author Greg
@@ -24,12 +25,16 @@ public class Article {
 	private int prixInitial;
 	private int prixVente;
 	private int etatVente;
-	private Integer idUtilisateur;
-	private Integer idCategorie;
+//	private Integer idUtilisateur;
+//	private Integer idCategorie;
 
 	// Attributs Utilisateur
 	private Utilisateur user;
 	List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
+
+//	// Attributs Vendeur
+//	private Vendeur vend;
+//	List<Vendeur> listeVendeur = new ArrayList<Vendeur>();
 
 	// Attributs Categorie
 	private Categorie cat;
@@ -42,39 +47,63 @@ public class Article {
 	// Attributs Retrait
 	private Retrait ret;
 
+//	// Méthodes Vendeur
+//	public Vendeur getVendeur() {
+//		return this.vend;
+//	}
+//
+//	public Integer getIdVendeur() {
+//		return this.vend.getId();
+//	}
+
 	// Méthodes Utilisateur
 	public Utilisateur getUtilisateur() {
+		this.user = (Vendeur) user;
+		((Vendeur) this.user).ajouterArticle(this);
 		return this.user;
 	}
 
 	public Integer getIdUtilisateur() {
-		return this.idUtilisateur;
-	}
-
-	public void setIdUtilisateur(Utilisateur user) {
-		this.idUtilisateur = user.getId();
+		return this.user.getId();
 	}
 
 	public void setIdUtilisateur(Integer id) {
-		this.idUtilisateur = id;
+		this.user.setId(id);
 	}
+
+	public void setIdUtilisateur(Vendeur vend) {
+		this.user.setId(id);
+	}
+
+//	public void setIdUtilisateur(Utilisateur user) {
+//		this.idUtilisateur = user.getId();
+//	}
+
+//	public void setIdUtilisateur(Integer id) {
+//		this.idUtilisateur = id;
+//	}
 
 	// Méthodes Categorie
 	public Categorie getCategorie() {
+		// this.cat.ajouterArticle(this);
 		return this.cat;
 	}
 
 	public Integer getIdCategorie() {
-		return this.idCategorie;
-	}
-
-	public void setIdCategorie(Categorie cat) {
-		this.idCategorie = cat.getId();
+		return this.cat.getId();
 	}
 
 	public void setIdCategorie(Integer id) {
-		this.idCategorie = id;
+		this.cat.setId(id);
 	}
+
+//	public void setIdCategorie(Categorie cat) {
+//		this.idCategorie = cat.getId();
+//	}
+//
+//	public void setIdCategorie(Integer id) {
+//		this.idCategorie = id;
+//	}
 
 	// Méthodes Enchere
 	public Enchere getEnchere() {
@@ -164,8 +193,8 @@ public class Article {
 		this.dateFin = dateFin;
 		this.prixInitial = prixInitial;
 		this.prixVente = prixVente;
-		this.idUtilisateur = user.getId();
-		this.idCategorie = categorie.getId();
+		this.user.getId();
+		this.cat.getId();
 	}
 
 	/**
@@ -189,8 +218,8 @@ public class Article {
 		this.dateFin = dateFin;
 		this.prixInitial = prixInitial;
 		this.prixVente = prixVente;
-		this.idUtilisateur = idUtilisateur;
-		this.idCategorie = idCategorie;
+		this.user.getId();
+		this.cat.getId();
 	}
 
 	public Integer getId() {
@@ -264,10 +293,10 @@ public class Article {
 				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
 				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
 				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
-				.append(", idUtilisateur=").append(this.idUtilisateur).append(", user=").append(this.user)
-				.append(", idCategorie=").append(this.idCategorie).append(", cat=").append(this.cat).append(", enc=")
-				.append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=").append(this.ret)
-				.append("]");
+				.append(", idUtilisateur=").append(this.getIdUtilisateur()).append(", user=").append(this.user)
+				.append(", idCategorie=").append(this.getIdCategorie()).append(", cat=").append(this.cat)
+				.append(", enc=").append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=")
+				.append(this.ret).append("]");
 		return builder.toString();
 	}
 
