@@ -38,7 +38,7 @@ Mot de passe : <input type="password">
 <input type="submit" value="Se connecter">
 
 </form>
-<form action="/ProjectEncheres/ServletProfil" method="get">
+<form action="/ProjectEncheres/ServletCreerCompte" method="get">
 <button type="submit">Créer un compte</button>
 </form>
 

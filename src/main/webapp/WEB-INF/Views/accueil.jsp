@@ -22,7 +22,17 @@
 <header>
 <div class="nomAppli"> ENI-Encheres</div>
 <h1 class="titrePage">Liste des enchères</h1>
-<div class="signIn"> <a href="ServletSignIn">S'inscrire - Se connecter</a> </div>
+
+<c:if test="${!sessionScope.connecte}">
+<div class="signIn"> 
+<a href="ServletSignIn">S'inscrire - Se connecter</a>
+</div>
+</c:if>
+<c:if test="${sessionScope.connecte}">
+<div class="signIn"> 
+<a href="ServletSignIn">Bonjour <c:out value="${sessionScope.user.getPseudo()}"></c:out>  </a>
+</div>
+</c:if>
 
 </header>
 <main>
