@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.projet.encheres.bo.Categorie;
-import fr.eni.projet.encheres.bo.ExempleObjet;
 import fr.eni.projet.encheres.dal.DALException;
 import fr.eni.projet.encheres.dal.DAO;
 import fr.eni.projet.encheres.dal.DAOFactory;
@@ -39,7 +38,7 @@ public class CategorieManager implements AbstractManager<Categorie> {
 		if (categorie.getId() != null) {
 			throw new BLLException("categorie déjà catalogué");
 		}
-		validerItem(categorie);
+		//validerItem(categorie);
 		try {
 			this.daoCategorie.insert(categorie);
 		} catch (DALException e) {
@@ -48,7 +47,7 @@ public class CategorieManager implements AbstractManager<Categorie> {
 
 	}
 
-	public void updateItem1(Categorie categorie) throws BLLException {
+	public void updateItem(Categorie categorie) throws BLLException {
 
 		validerItem(categorie);
 		try {
@@ -70,7 +69,7 @@ public class CategorieManager implements AbstractManager<Categorie> {
 
 	}
 
-	public void validerItem(ExempleObjet categorie) throws BLLException {
+	public void validerItem(Categorie categorie) throws BLLException {
 		// à définir en fonction de l'objet sécurité supplémentaire aux Check SQL
 	}
 
