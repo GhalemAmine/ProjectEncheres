@@ -8,4 +8,6 @@ import fr.eni.projet.encheres.bo.Categorie;
  */
 public interface DAOCategorie extends DAO<Categorie> {
 
+	void afficherTruc();
+	
 }

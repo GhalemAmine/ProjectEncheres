@@ -18,7 +18,7 @@ public class CategorieManager implements AbstractManager<Categorie> {
 	private List<Categorie> catalogue = new ArrayList<Categorie>();
 
 	public CategorieManager() throws BLLException {
-
+		System.out.println("init CategorieManager");
 		this.daoCategorie = DAOFactory.getCategorieDAO();
 	}
 

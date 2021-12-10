@@ -6,7 +6,7 @@ import fr.eni.projet.encheres.bo.Enchere;
 import fr.eni.projet.encheres.bo.Retrait;
 import fr.eni.projet.encheres.bo.user.Utilisateur;
 import fr.eni.projet.encheres.dal.jdbc.ArticleDAOJdbcImpl;
-import fr.eni.projet.encheres.dal.jdbc.CategorieJdbcImpl;
+import fr.eni.projet.encheres.dal.jdbc.CategorieDAOJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.EnchereJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.RetraitDAOJdbcImpl;
 import fr.eni.projet.encheres.dal.jdbc.UtilisateurJdbcImpl;
@@ -34,7 +34,8 @@ public class DAOFactory {
 	}
 
 	public static DAO<Categorie> getCategorieDAO() {
-		DAOCategorie categorieDAO = new CategorieJdbcImpl();
+		System.out.println("init getCategorieDAO");
+		DAOCategorie categorieDAO = new CategorieDAOJdbcImpl();
 		return categorieDAO;
 	}
 	

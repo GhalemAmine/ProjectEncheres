@@ -36,14 +36,15 @@ public class ServeletTestDBCategorie extends HttpServlet {
 		
 		
 		try {
-		
+		Categorie jeu = new Categorie("Jeux et Jouets");
+		System.out.println("categorie : " + jeu.getNom());
 		CategorieManager categorieManager = new CategorieManager();
-		 Categorie jeu = new Categorie("Jeux et Jouets");
+		 
+		
 		 categorieManager.addItem(jeu);
 		//categorieManager.updateItem(Jeu);
 		//categorieManager.delateItem(Jeu);	
 		} catch (BLLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

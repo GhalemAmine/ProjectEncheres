@@ -15,7 +15,7 @@ import fr.eni.projet.encheres.dal.DAOCategorie;
  * @author Alexandre Mchich
  *
  */
-public class CategorieJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCategorie {
+public class CategorieDAOJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCategorie {
 
 	String sqlDeleteByID = "delete from Categorie where id=?";
 	String sqlInsert = "insert into Categorie(id, nom) values (?,?)";
@@ -24,7 +24,9 @@ public class CategorieJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCate
 	String sqlUpdate = "update Categorie set id=?, nom=?, where id=? ";
 	String sqlTruncate = "truncate table Categorie";
 
-	public CategorieJdbcImpl() {
+	public CategorieDAOJdbcImpl() {
+		System.out.println("init CategorieJdbcImpl");
+		afficherTruc();
 		setSqlDeleteByID(sqlDeleteByID);
 		setSqlSelectAll(sqlSelectAll);
 		setSqlSelectByID(sqlSelectByID);
@@ -74,6 +76,12 @@ public class CategorieJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCate
 			throw new DALException("erreur de requete Insert", e);
 
 		}
+	}
+
+	@Override
+	public void afficherTruc() {
+		System.out.println("truc");
+		
 	}
 
 }
