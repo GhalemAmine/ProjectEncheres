@@ -37,9 +37,10 @@ public class ServletTestDBArticle extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		List<Article> catalogueArticle = null;
 		try {
+
 			ArticleManager articleManager = new ArticleManager();
+			List<Article> catalogueArticle = null;
 
 			catalogueArticle = articleManager.getCatalogue();
 			request.setAttribute("catalogueArticle", catalogueArticle);
