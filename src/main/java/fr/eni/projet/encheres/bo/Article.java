@@ -4,6 +4,8 @@
 package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import fr.eni.projet.encheres.bo.user.Utilisateur;
 
@@ -32,6 +34,13 @@ public class Article {
 //	public void setUtilisateur(Utilisateur user) {
 //		this.utilisateur = user;
 //	}
+	// Recupération utilisateur + mise en place idUtilisateur + MEP list Utilisateur
+
+	private Utilisateur user;
+
+	public Utilisateur getUtilisateur() {
+		return this.user;
+	}
 
 	private Integer idUtilisateur;
 
@@ -51,6 +60,16 @@ public class Article {
 		this.idUtilisateur = id;
 	}
 
+	List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
+
+	// RecupérationCategorie + mise en place idCategorie + MEP list categorie
+
+	private Categorie cat;
+
+	public Categorie getCategorie() {
+		return this.cat;
+	}
+
 	private Integer idCategorie;
 
 	// Recupération idCategorie
@@ -66,8 +85,19 @@ public class Article {
 		this.idCategorie = id;
 	}
 
-	// liste d'encheres par article
-	// public List<Encheres> listeEncheres = new ArrayList<Encheres>();
+	List<Categorie> listeCat = new ArrayList<Categorie>();
+
+	// Recupération Enchere + mise en place liste enchere
+
+	// RecupérationCategorie + mise en place idCategorie + MEP list categorie
+
+	private Enchere enc;
+
+	public Enchere getEnchere() {
+		return this.enc;
+	}
+
+	List<Enchere> listeEnc = new ArrayList<Enchere>();
 
 	/**
 	 * 
