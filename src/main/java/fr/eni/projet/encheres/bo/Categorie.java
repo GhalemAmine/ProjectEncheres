@@ -23,6 +23,12 @@ public class Categorie {
 		this.setNom(nom);
 	}
 
+	public void ajouterArticle(Article article) {
+		this.ajouterArticle(article);
+		// Méthode ajouter article
+
+	}
+
 	public Categorie(Integer id, String nom) {
 		this.id = id;
 		this.nom = nom;
@@ -43,4 +49,5 @@ public class Categorie {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 }
