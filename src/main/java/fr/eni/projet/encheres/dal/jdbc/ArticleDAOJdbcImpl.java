@@ -19,15 +19,15 @@ import fr.eni.projet.encheres.dal.DAOArticle;
 public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArticle {
 
 	String sqlDeleteByID = "delete from ARTICLES where id=?";
-	String sqlInsert = "insert into ARTICLES(nomArticle, description, dateDebutEnchere, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie) values (?,?,?,?,?,?,?,?)";
-	String sqlSelectByID = "select nomArticle, description, dateDebutEnchere, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES where id=?";
-	String sqlSelectAll = "select id, nomArticle, description, dateDebutEnchere, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES";
-	String sqlUpdate = "update ARTICLES set nomArticle=?, description=?, dateDebutEnchere=?, dateFinEnchere=?, prixInitial=?, prixVente=?, idUtilisateur=?, idCategorie=?, where id=? ";
+	String sqlInsert = "insert into ARTICLES(nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie) values (?,?,?,?,?,?,?,?)";
+	String sqlSelectByID = "select nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES where id=?";
+	String sqlSelectAll = "select id, nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES";
+	String sqlUpdate = "update ARTICLES set nomArticle=?, description=?, dateDebutEncheres=?, dateFinEncheres=?, prixInitial=?, prixVente=?, idUtilisateur=?, idCategorie=?, where id=? ";
 	String sqlTruncate = "truncate table ARTICLES";
-	String sqlSelectByMotClef = "select id, nomArticle, description, dateDebutEnchere, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES where nomArticle like ? "
+	String sqlSelectByMotClef = "select id, nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie from ARTICLES where nomArticle like ? "
 			+ " or description like ?";
-	String sqlSelectByCategorie = "select id, nomArticle, description, dateDebutEnchre, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idCategorie=?";
-	String sqlSelectByUtilisateur = "select id, nomArticle, description, dateDebutEnchre, dateFinEnchere, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idUtilisateur=?";
+	String sqlSelectByCategorie = "select id, nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idCategorie=?";
+	String sqlSelectByUtilisateur = "select id, nomArticle, description, dateDebutEncheres, dateFinEncheres, prixInitial, prixVente, idUtilisateur, idCategorie frome ARTICLES where idUtilisateur=?";
 
 	public ArticleDAOJdbcImpl() {
 		setSqlDeleteByID(sqlDeleteByID);
@@ -68,8 +68,8 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		a.setId(rs.getInt("id"));
 		a.setNomArticle(rs.getString("nom"));
 		a.setDescription(rs.getString("description"));
-		a.setDateDebut(rs.getDate("dateDebutEnchere"));
-		a.setDateFin(rs.getDate("dateFinEnchere"));
+		a.setDateDebut(rs.getDate("dateDebutEncheres"));
+		a.setDateFin(rs.getDate("dateFinEncheres"));
 		a.setPrixInitial(rs.getInt("prixInitial"));
 		a.setPrixVente(rs.getInt("prixVente"));
 		a.setIdUtilisateur(rs.getInt("idUtilisateur"));
@@ -109,7 +109,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEnchere"), rs.getDate("dateFinEnchere"), rs.getInt("prixInitial"),
+						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
 						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
 			}
 			liste.add(a);
@@ -129,7 +129,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEnchere"), rs.getDate("dateFinEnchere"), rs.getInt("prixInitial"),
+						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
 						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
 			}
 			liste.add(a);
@@ -150,7 +150,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEnchere"), rs.getDate("dateFinEnchere"), rs.getInt("prixInitial"),
+						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
 						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
 			}
 			liste.add(a);
