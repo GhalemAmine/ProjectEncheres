@@ -18,7 +18,7 @@ import fr.eni.projet.encheres.bo.Categorie;
 
 public class ServeletTestDBCategorie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final Categorie Jeu = null;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,8 +37,9 @@ public class ServeletTestDBCategorie extends HttpServlet {
 		
 		try {
 		
-		 CategorieManager categorieManager = new CategorieManager();
-		categorieManager.addItem(Jeu);
+		CategorieManager categorieManager = new CategorieManager();
+		 Categorie jeu = new Categorie("Jeux et Jouets");
+		 categorieManager.addItem(jeu);
 		//categorieManager.updateItem(Jeu);
 		//categorieManager.delateItem(Jeu);	
 		} catch (BLLException e) {

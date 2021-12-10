@@ -38,7 +38,7 @@ public class CategorieManager implements AbstractManager<Categorie> {
 		if (categorie.getId() != null) {
 			throw new BLLException("categorie déjà catalogué");
 		}
-		//validerItem(categorie);
+		validerItem(categorie);
 		try {
 			this.daoCategorie.insert(categorie);
 		} catch (DALException e) {
