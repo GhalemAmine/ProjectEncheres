@@ -4,8 +4,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 import fr.eni.projet.encheres.bo.user.Vendeur;
-import java.util.List;
-import java.util.ArrayList;
+
 
 /**
  * @author Alexandre Mchich
@@ -18,11 +17,13 @@ import java.util.ArrayList;
 
 public class Enchere {
 
-	private Integer idArticle;
-	private Integer idVendeur;
+	//L'id enchère est définie par un tableau : index 1 pour vendeur et index 0 pour Article
+	private Integer[] idEnchere = new Integer[2];
+	private Article article;
+	private Vendeur vendeur;
 	private Date dateEnchere;
 	private int montantEnchere;
-	// public List<Vendeur> listeVenseurs = new ArrayList<Vendeur>();
+//	private List<Enchere> historique = new ArrayList<Enchere>();
 
 	public Enchere() {
 
@@ -30,8 +31,12 @@ public class Enchere {
 
 	public Enchere(int montantEnchere, Article article, Vendeur vendeur) {
 
-		this.idVendeur = vendeur.getId();
-		this.idArticle = article.getId();
+		this.vendeur = vendeur;
+		this.idEnchere[1]= vendeur.getId();
+		
+		this.article = article;
+		this.idEnchere[0] = article.getId();
+		
 		this.dateEnchere = Date.valueOf(LocalDate.now());
 		this.montantEnchere = montantEnchere;
 
@@ -39,12 +44,24 @@ public class Enchere {
 	
 	public Enchere(Date dateEnchere, int montantEnchere, Article article, Vendeur vendeur) {
 
-		this.idVendeur = vendeur.getId();
-		this.idArticle = article.getId();
+		this.vendeur = vendeur;
+		this.idEnchere[1]= vendeur.getId();
+		
+		this.article = article;
+		this.idEnchere[0] = article.getId();
 		this.dateEnchere = dateEnchere;
 		this.montantEnchere = montantEnchere;
 
 	}
+	
+	
+	public Integer[] getIdEnchere() {
+		
+		return idEnchere;
+	}
+	
+	
+	
 
 	public Date getDateEnchere() {
 		if(dateEnchere==null) {
@@ -67,29 +84,25 @@ public class Enchere {
 		this.montantEnchere = montantEnchere;
 	}
 
-	public Integer getIdArticle() {
-		return idArticle;
+	public Article getArticle() {
+		return article;
 	}
 
-	public void setIdArticle(Article article) {
-		this.idArticle = article.getId();
+	public void setArticle(Article article) {
+		this.article = article;
+		this.idEnchere[0] = article.getId();
+
 	}
 
-	public Integer getIdVendeur() {
-		return idVendeur;
+	public Vendeur getVendeur() {
+		return vendeur;
 	}
 
-	public void setIdVendeur(Vendeur vendeur) {
-		this.idVendeur = vendeur.getId();
+	public void setVendeur(Vendeur vendeur) {
+		this.vendeur = vendeur;
+		this.idEnchere[1]=vendeur.getId();
 	}
 
-	public void setIdArticle(Integer id) {
-		this.idArticle = id;
-		
-	}
 
-	public void setIdVendeur(Integer id) {
-		this.idVendeur= id;
-	}
 
 }

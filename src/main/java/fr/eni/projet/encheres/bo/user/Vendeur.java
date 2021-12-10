@@ -8,6 +8,7 @@ import java.util.List;
 
 import fr.eni.projet.encheres.bo.Adresse;
 import fr.eni.projet.encheres.bo.Article;
+import fr.eni.projet.encheres.bo.Enchere;
 
 /**
  * @author William Freyer
@@ -18,6 +19,8 @@ public class Vendeur extends Utilisateur {
 	private int credit = 0;
 
 	private List<Article> listeArticles = new ArrayList<Article>();
+	private List<Enchere> listeEnchere = new ArrayList<Enchere>();
+	
 
 	public Vendeur() {
 
@@ -49,7 +52,21 @@ public class Vendeur extends Utilisateur {
 
 	public void ajouterArticle(Article article) {
 		this.listeArticles.add(article);
-		// ne pas oublier de set l'utilisateur sur l'article à ce moment aussi
+		article.setIdUtilisateur(this);
+	}
+
+	/**
+	 * @return the listeEnchere
+	 */
+	public List<Enchere> getListeEnchere() {
+		return listeEnchere;
+	}
+
+	/**
+	 * @param listeEnchere the listeEnchere to set
+	 */
+	public void setListeEnchere(List<Enchere> listeEnchere) {
+		this.listeEnchere = listeEnchere;
 	}
 
 	@Override

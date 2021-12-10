@@ -3,6 +3,7 @@ package fr.eni.projet.encheres.bll;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.eni.projet.encheres.bo.Article;
 import fr.eni.projet.encheres.bo.Enchere;
 import fr.eni.projet.encheres.dal.DALException;
 import fr.eni.projet.encheres.dal.DAO;
@@ -73,19 +74,35 @@ public class EnchereManager implements AbstractManager<Enchere> {
 		// à définir en fonction de l'objet sécurité supplémentaire aux Check SQL
 	}
 
-	public Enchere getItem(Integer idArticle, Integer idUtilisateur) throws BLLException {
-		Enchere enc = null;
-
+//	public Enchere getItem(Integer idArticle, Integer idUtilisateur) throws BLLException {
+//		Enchere enc = null;
+//
+//		try {
+//			
+//			enc = ((DAOEnchere)this.daoEnchere).selectByID(idArticle, idUtilisateur);
+//		} catch (DALException e) {
+//			System.err.println("echec récupération utilisateur");
+//			throw new BLLException("echec récupération utilisateur", e);
+//		}
+//
+//		return enc;
+//
+//	}
+	
+	
+	// TODO on aura surement besoin de voir la liste des encheres sur un article A completer si nécessaire
+	public List<Enchere> getEncheresArticle(Article art){
+		List<Enchere> liste = new ArrayList<Enchere>();
+		
 		try {
-			
-			enc = ((DAOEnchere)this.daoEnchere).selectByID(idArticle, idUtilisateur);
+			liste = ((DAOEnchere) this.daoEnchere).selectByArticle(art);
 		} catch (DALException e) {
-			System.err.println("echec récupération utilisateur");
-			throw new BLLException("echec récupération utilisateur", e);
+			e.printStackTrace();
 		}
-
-		return enc;
-
+		
+		
+		return liste;
+		
 	}
 
 	public void nettoyerBDD() throws BLLException {
