@@ -51,7 +51,7 @@ public class Article {
 //	public Vendeur getVendeur() {
 //		return this.vend;
 //	}
-//
+//  
 //	public Integer getIdVendeur() {
 //		return this.vend.getId();
 //	}
@@ -85,7 +85,7 @@ public class Article {
 
 	// Méthodes Categorie
 	public Categorie getCategorie() {
-		// this.cat.ajouterArticle(this);
+		this.cat.ajouterArticle(this);
 		return this.cat;
 	}
 
