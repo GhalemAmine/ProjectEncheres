@@ -4,13 +4,13 @@ package fr.eni.projet.encheres.bo;
  * @author Alexandre Mchich
  * 
  * 
- * @update by William : Changement de Article article en Integer idArticle Ajout
+ * @update by William :  Ajout
  *         d'un constructeur vide Modification nomemclature
  */
 
 public class Retrait {
 
-	private Integer IdArticle;
+	private Article article;
 	private Adresse adresse;
 
 	public Retrait() {
@@ -18,17 +18,21 @@ public class Retrait {
 	}
 
 	public Retrait(Adresse adresse, Article article) {
-		this.IdArticle = article.getId();
+		this.article = article;
 		this.adresse = adresse;
 	}
 
 	public Integer getIdArticle() {
 
-		return this.IdArticle;
+		return this.article.getId();
 	}
 
-	public void setIdArticle(Article article) {
-		this.IdArticle = article.getId();
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+	
+	public Article getArticle() {
+		return this.article;
 	}
 
 	public Adresse getAdresse() {
