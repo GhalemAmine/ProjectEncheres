@@ -15,6 +15,7 @@ import fr.eni.projet.encheres.bo.user.Utilisateur;
  */
 public class Article {
 
+	// Attributs Article
 	private Integer id;
 	private String nomArticle;
 	private String description;
@@ -23,35 +24,33 @@ public class Article {
 	private int prixInitial;
 	private int prixVente;
 	private int etatVente;
+	private Integer idUtilisateur;
+	private Integer idCategorie;
 
-	// récupération données utilisateur
-//	private Integer idUtilisateur;
-//
-//	public Utilisateur getUtilisateur() {
-//		return this.utilisateur;
-//	}
-//
-//	public void setUtilisateur(Utilisateur user) {
-//		this.utilisateur = user;
-//	}
-	// Recupération utilisateur + mise en place idUtilisateur + MEP list Utilisateur
-
+	// Attributs Utilisateur
 	private Utilisateur user;
+	List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
 
+	// Attributs Categorie
+	private Categorie cat;
+	List<Categorie> listeCat = new ArrayList<Categorie>();
+
+	// Attributs Enchere
+	private Enchere enc;
+	List<Enchere> listeEnc = new ArrayList<Enchere>();
+
+	// Attributs Retrait
+	private Retrait ret;
+
+	// Méthodes Utilisateur
 	public Utilisateur getUtilisateur() {
 		return this.user;
 	}
 
-	private Integer idUtilisateur;
-
-	// Recupération idUtilisateur
 	public Integer getIdUtilisateur() {
 		return this.idUtilisateur;
 	}
 
-	/**
-	 * @param idUtilisateur the idUtilisateur to set
-	 */
 	public void setIdUtilisateur(Utilisateur user) {
 		this.idUtilisateur = user.getId();
 	}
@@ -60,19 +59,11 @@ public class Article {
 		this.idUtilisateur = id;
 	}
 
-	List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
-
-	// RecupérationCategorie + mise en place idCategorie + MEP list categorie
-
-	private Categorie cat;
-
+	// Méthodes Categorie
 	public Categorie getCategorie() {
 		return this.cat;
 	}
 
-	private Integer idCategorie;
-
-	// Recupération idCategorie
 	public Integer getIdCategorie() {
 		return this.idCategorie;
 	}
@@ -85,23 +76,25 @@ public class Article {
 		this.idCategorie = id;
 	}
 
-	List<Categorie> listeCat = new ArrayList<Categorie>();
-
-	// Recupération Enchere + mise en place liste enchere
-
-	// RecupérationCategorie + mise en place idCategorie + MEP list categorie
-
-	private Enchere enc;
-
+	// Méthodes Enchere
 	public Enchere getEnchere() {
 		return this.enc;
 	}
 
-	List<Enchere> listeEnc = new ArrayList<Enchere>();
+	public void setEnchere(Enchere enc) {
+		this.enc = enc;
+	}
 
-	/**
-	 * 
-	 */
+	// Méthodes Retrait
+	public Retrait getRetrait() {
+		return this.ret;
+	}
+
+	public void setRetrait(Retrait ret) {
+		this.ret = ret;
+	}
+
+	// Methodes Article
 	public Article() {
 		super();
 	}
@@ -264,17 +257,16 @@ public class Article {
 		this.etatVente = etatVente;
 	}
 
-	/*
-	 * toString, avant liaison avec autres class
-	 * 
-	 */
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Articles [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
+		builder.append("Article [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
 				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
 				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
 				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
+				.append(", idUtilisateur=").append(this.idUtilisateur).append(", user=").append(this.user)
+				.append(", idCategorie=").append(this.idCategorie).append(", cat=").append(this.cat).append(", enc=")
+				.append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=").append(this.ret)
 				.append("]");
 		return builder.toString();
 	}
