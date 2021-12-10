@@ -1,6 +1,8 @@
 <%@page import="fr.eni.projet.encheres.bo.Article"%>
 <%@page import="fr.eni.projet.encheres.bo.Article"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -32,7 +34,7 @@
 <main>
 
 <% 
-	List<Article> catalogueArticle = (List<Article>) request.getAttribute("catalogueArticle");
+	List<Article> catalogueArticle = (List<Article>)request.getAttribute("catalogueArticle");
 	if(catalogueArticle!=null) {
 %>
 	<table>
@@ -60,6 +62,7 @@
 		%>
 	
 		<p> Aucun article trouvé</p>
+		
 		<%
 		}
 		%>
@@ -70,6 +73,6 @@
 
 
 </main>
-<footer>copyright - Will E. Cefes - Et les autres qui mettront leur nom aussi ou alors on aura décidé d'un nom d'entreprise </footer>
+<footer>copyright - Greg / Spague - Les Chiens Prodiges </footer>
 </body>
 </html>
