@@ -48,8 +48,8 @@
 				<td><%=a.getDescription() %></td>
 				<td><%=a.getDateDebut() %></td>
 				<td><%=a.getDateFin() %></td>
-				<td><%=a.getIdUtilisateur() %></td>
-				<td><%=a.getIdCategorie() %></td>
+<%-- 				<td><%=a.getIdUtilisateur() %></td>
+				<td><%=a.getIdCategorie() %></td> --%>
 			</tr>
 			<%
 				}

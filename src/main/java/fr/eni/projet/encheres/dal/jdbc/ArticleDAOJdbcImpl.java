@@ -63,17 +63,30 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 
 	@Override
 	public Article createFromRS(ResultSet rs) throws SQLException {
+		
+		System.out.println("Debut recup rs");
+
 		Article a = new Article();
+		System.out.println("Article instancié");
 
 		a.setId(rs.getInt("id"));
-		a.setNomArticle(rs.getString("nom"));
+		System.out.println("id ajouté");
+
+		a.setNomArticle(rs.getString("nomArticle"));
+		
+		System.out.println("nom ajouté");
+
 		a.setDescription(rs.getString("description"));
 		a.setDateDebut(rs.getDate("dateDebutEncheres"));
 		a.setDateFin(rs.getDate("dateFinEncheres"));
 		a.setPrixInitial(rs.getInt("prixInitial"));
 		a.setPrixVente(rs.getInt("prixVente"));
-		a.setIdUtilisateur(rs.getInt("idUtilisateur"));
-		a.setIdCategorie(rs.getInt("idCategorie"));
+		
+		System.out.println("prix vente ajouté");
+
+//		a.setIdUtilisateur(rs.getInt("idUtilisateur"));
+//		a.setIdCategorie(rs.getInt("idCategorie"));
+		System.out.println("article complet");
 
 		return a;
 	}
