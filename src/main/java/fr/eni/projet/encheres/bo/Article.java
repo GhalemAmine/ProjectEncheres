@@ -32,6 +32,9 @@ public class Article {
 	private Utilisateur user;
 	List<Utilisateur> listeUser = new ArrayList<Utilisateur>();
 
+	// Attributs Adresse
+	private Adresse ads;
+
 //	// Attributs Vendeur
 //	private Vendeur vend;
 //	List<Vendeur> listeVendeur = new ArrayList<Vendeur>();
@@ -55,6 +58,16 @@ public class Article {
 //	public Integer getIdVendeur() {
 //		return this.vend.getId();
 //	}
+
+	// Méthodes Adresse
+
+	public Adresse getAdresse() {
+		return this.ads;
+	}
+
+	public void setAdresse(Adresse ads) {
+		this.ads = ads;
+	}
 
 	// Méthodes Utilisateur
 	public Utilisateur getUtilisateur() {
@@ -90,7 +103,7 @@ public class Article {
 
 	// Méthodes Categorie
 	public Categorie getCategorie() {
-		this.cat.ajouterArticle(this);
+//		this.cat.ajouterArticle(this);
 		return this.cat;
 	}
 
@@ -325,18 +338,18 @@ public class Article {
 		this.etatVente = etatVente;
 	}
 
-//	@Override
-//	public String toString() {
-//		StringBuilder builder = new StringBuilder();
-//		builder.append("Article [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
-//				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
-//				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
-//				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
-//				.append(", idUtilisateur=").append(this.getIdUtilisateur()).append(", user=").append(this.user)
-//				.append(", idCategorie=").append(this.getIdCategorie()).append(", cat=").append(this.cat)
-//				.append(", enc=").append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=")
-//				.append(this.ret).append("]");
-//		return builder.toString();
-//	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Article [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
+				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
+				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
+				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
+				.append(", idUtilisateur=").append(this.getIdUtilisateur()).append(", user=").append(this.user)
+				.append(", idCategorie=").append(this.getIdCategorie()).append(", cat=").append(this.cat)
+				.append(", enc=").append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=")
+				.append(this.ret).append("]");
+		return builder.toString();
+	}
 
 }
