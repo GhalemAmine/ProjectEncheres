@@ -20,8 +20,8 @@ public class CategorieDAOJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOC
 	String sqlDeleteByID = "delete from Categories where id=?";
 	String sqlInsert = "insert into Categories(libelle) values (?)";
 	String sqlSelectByID = "select id, nom from Categories where id=?";
-	String sqlSelectAll = "select id, nom from Categories";
-	String sqlUpdate = "update Categories set id=?, nom=?, where id=? ";
+	String sqlSelectAll = "select id, libelle from Categories";
+	String sqlUpdate = "update Categories set id=?, libelle=?, where id=? ";
 	String sqlTruncate = "truncate table Categories";
 
 	public CategorieDAOJdbcImpl() {
@@ -50,7 +50,7 @@ public class CategorieDAOJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOC
 		
 		Categorie categorie = new Categorie();
 		categorie.setId(rs.getInt("id"));
-		categorie.setNom(rs.getString("nom"));
+		categorie.setNom(rs.getString("libelle"));
 		
 //			al.setNom(rs.getString(2));
 //			al.setIdRepas(3);
