@@ -1,5 +1,7 @@
 <%@page import="fr.eni.projet.encheres.bo.Article"%>
-<%@page import="fr.eni.projet.encheres.bo.Article"%>
+<%@page import="fr.eni.projet.encheres.bo.Categorie"%>
+<%@page import="fr.eni.projet.encheres.bo.Adresse"%>
+<%@page import="fr.eni.projet.encheres.bo.user.Vendeur"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -34,6 +36,7 @@
 <main>
 
 <% 
+	
 	List<Article> catalogueArticle = (List<Article>)request.getAttribute("catalogueArticle");
 	if(catalogueArticle!=null) {
 %>
@@ -41,6 +44,10 @@
 		<tbody>
 			<%
 				for(Article a : catalogueArticle) {
+					Vendeur vend = (Vendeur)a.getUtilisateur();
+					Adresse ads = (Adresse)a.getAdresse();
+					Categorie cat = (Categorie)a.getCategorie();
+					
 			%>
 			<tr>
 				<td><%=a.getId() %></td>
@@ -48,8 +55,18 @@
 				<td><%=a.getDescription() %></td>
 				<td><%=a.getDateDebut() %></td>
 				<td><%=a.getDateFin() %></td>
-<%-- 				<td><%=a.getIdUtilisateur() %></td>
-				<td><%=a.getIdCategorie() %></td> --%>
+				<td><%=vend.getId() %></td>
+				<td><%=vend.getNom() %></td>
+				<td><%=vend.getPrenom() %></td>
+				<td><%=vend.getPseudo() %></td>
+				<td><%=vend.getEmail() %></td>
+<%-- 				<td><%=ads.getRue() %></td>
+				<td><%=ads.getCodePostal() %></td>
+				<td><%=ads.getVille() %></td> --%>
+				<td><%=cat.getId() %></td>
+				<td><%=cat.getNom() %></td>
+				
+								
 			</tr>
 			<%
 				}
