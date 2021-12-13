@@ -50,4 +50,12 @@ public class Categorie {
 		this.id = id;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Categorie [id=").append(this.id).append(", nom=").append(this.nom);
+
+				return builder.toString();
+		}
+
 }
