@@ -15,6 +15,7 @@ import fr.eni.projet.encheres.bo.Adresse;
 import fr.eni.projet.encheres.bo.Article;
 import fr.eni.projet.encheres.bo.Categorie;
 import fr.eni.projet.encheres.bo.Enchere;
+import fr.eni.projet.encheres.bo.user.Utilisateur;
 import fr.eni.projet.encheres.bo.user.Vendeur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.DALException;
@@ -29,11 +30,43 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 
 	String sqlDeleteByID = "delete from Encheres where idUtilisateur=? AND idArticle=?";
 	String sqlInsert = "insert into Encheres(idUtilisateur, idArticle, dateEnchere, montantEnchere) values (?,?,?,?)";
-	String sqlSelectByID = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERES where idUtilisateur=? AND idArticle=?";
-	String sqlSelectAll = "select dateEnchere, montantEnchere, Articles.id, nomArticle, description, dateDebutEncheres, dateFinEncheres, idCategorie,Utilisateurs.id, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, credit, administrateur from ENCHERES inner join ARTICLES on idArticle=Articles.id inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id";
+	String sqlSelectByID = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
+							+ " description, dateDebutEncheres, dateFinEncheres," 
+							+ " idCategorie,Encheres.idUtilisateur as idUser,"
+							+ " pseudo, nom, prenom, email, telephone, rue, codePostal, " 
+							+ "ville, motDePasse, credit, administrateur "
+							+ "from ENCHERES " 
+							+ "inner join ARTICLES on idArticle=Articles.id "
+							+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id "
+							+ "where Encheres.idUtilisateur = ? AND idArticle = ?";
+	String sqlSelectAll = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
+							+ " description, dateDebutEncheres, dateFinEncheres," 
+							+ " idCategorie,Encheres.idUtilisateur as idUser,"
+							+ " pseudo, nom, prenom, email, telephone, rue, codePostal, " 
+							+ "ville, motDePasse, credit, administrateur "
+							+ "from ENCHERES " 
+							+ "inner join ARTICLES on idArticle=Articles.id "
+							+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id";
 	String sqlUpdate = "update ENCHERES set idUtilisateur=?, dateEnchere=?, montantEnchere=?, where idUtilisateur=? AND idArticle=?";
 	String sqlTruncate = "truncate table ENCHERES";
-	String sqlSelectByArticle = "select idUtilisateur, idArticle, dateEnchere, montantEnchere from ENCHERES where idArticle=?";
+	String sqlSelectByArticle = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
+								+ " description, dateDebutEncheres, dateFinEncheres,"
+								+ " idCategorie,Encheres.idUtilisateur as idUser,"
+								+ " pseudo, nom, prenom, email, telephone, rue, codePostal, "
+								+ "ville, motDePasse, credit, administrateur "
+								+ "from ENCHERES " 
+								+ "inner join ARTICLES on idArticle=Articles.id "
+								+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id "
+								+ "where idArticle = ?";
+	private String sqlSelectByUser = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
+			+ " description, dateDebutEncheres, dateFinEncheres,"
+			+ " idCategorie,Encheres.idUtilisateur as idUser,"
+			+ " pseudo, nom, prenom, email, telephone, rue, codePostal, "
+			+ "ville, motDePasse, credit, administrateur "
+			+ "from ENCHERES " 
+			+ "inner join ARTICLES on idArticle=Articles.id "
+			+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id "
+			+ "where Encheres.idUtilisateur = ?";;
 
 	public EnchereJdbcImpl() {
 		setSqlDeleteByID(sqlDeleteByID);
@@ -108,6 +141,37 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 		return liste;
 	}
 
+	
+	@Override
+	public List<Enchere> selectByUser(Utilisateur user) throws DALException {
+
+		String sql = sqlSelectByUser ;
+		List<Enchere> liste = new ArrayList<Enchere>();
+		Enchere enc = null;
+		try (Connection con = ConnectionProvider.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+
+			stmt.setInt(1, user.getId());
+
+			ResultSet rs = stmt.executeQuery();
+
+			while (rs.next()) {
+				enc = createFromRS(rs);
+				liste.add(enc);
+
+			}
+
+		} catch (SQLException e) {
+
+			throw new DALException("erreur de requete SelectByArticle", e);
+		}
+
+		return liste;
+	}
+	
+	
+	
+	
+	
 	@Override
 	public void deleteByID(Integer id) throws DALException {
 		System.err.println("Il manque un paramètre pour la recherche");
@@ -181,19 +245,18 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 	@Override
 	public Enchere createFromRS(ResultSet rs) throws SQLException {
 
-		//génération de l'adresse
-		
+		// génération de l'adresse
+
 		Adresse adr = new Adresse();
-		
+
 		adr.setRue(rs.getString("rue"));
 		adr.setCodePostal(rs.getString("codePostal"));
 		adr.setVille("ville");
-		
-		
-	// génération du vendeur	
+
+		// génération du vendeur
 		Vendeur vendeur = new Vendeur();
-		
-		vendeur.setId(rs.getInt("idUtilisateur"));
+
+		vendeur.setId(rs.getInt("idUser"));
 		vendeur.setPseudo(rs.getString("pseudo"));
 		vendeur.setNom(rs.getString("nom"));
 		vendeur.setPrenom(rs.getString("prenom"));
@@ -202,16 +265,15 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 		vendeur.setAdresse(adr);
 		vendeur.setMdp(rs.getString("motDePasse"));
 		vendeur.setCredit(rs.getInt("credit"));
-		vendeur.setAdministrateur(rs.getBoolean("administreur"));
+//		vendeur.setAdministrateur(rs.getBoolean("administreur"));
 //génération de la Categorie
-		
+
 		Categorie cat = new Categorie();
 		cat.setId(rs.getInt("idCategorie"));
 		cat.setNom("libelle");
 //génération de l'article
 		Article art = new Article();
 
-		
 		art.setId(rs.getInt("idArticle"));
 		art.setNomArticle(rs.getString("nomArticle"));
 		art.setDescription(rs.getString("description"));
