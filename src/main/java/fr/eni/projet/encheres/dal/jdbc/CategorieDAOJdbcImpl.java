@@ -18,7 +18,7 @@ import fr.eni.projet.encheres.dal.DAOCategorie;
 public class CategorieDAOJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOCategorie {
 
 	String sqlDeleteByID = "delete from Categories where id=?";
-	String sqlInsert = "insert into Categories(id, nom) values (?,?)";
+	String sqlInsert = "insert into Categories(libelle) values (?)";
 	String sqlSelectByID = "select id, nom from Categories where id=?";
 	String sqlSelectAll = "select id, nom from Categories";
 	String sqlUpdate = "update Categories set id=?, nom=?, where id=? ";

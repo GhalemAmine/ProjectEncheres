@@ -35,7 +35,7 @@ public class ServeletTestJDBCategorie extends HttpServlet {
 			throws ServletException, IOException {
 
 		try {
-			Categorie jeu = new Categorie("Jeux et Jouets");
+			Categorie jeu = new Categorie("Canard");
 			CategorieManager categorieManager = new CategorieManager();
 
 			categorieManager.addItem(jeu);
