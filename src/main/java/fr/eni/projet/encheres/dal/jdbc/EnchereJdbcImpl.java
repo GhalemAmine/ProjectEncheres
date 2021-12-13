@@ -284,7 +284,8 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 
 //génération de l'enchere : 
 		Enchere enc = new Enchere();
-
+		enc.setVendeur(vendeur);
+		enc.setArticle(art);
 		enc.setDateEnchere(rs.getDate("dateEnchere"));
 		enc.setMontantEnchere(rs.getInt("montantEnchere"));
 

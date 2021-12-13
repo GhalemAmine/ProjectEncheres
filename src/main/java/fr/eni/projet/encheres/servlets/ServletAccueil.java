@@ -29,14 +29,16 @@ public class ServletAccueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		// Preparation du dispatcher + oeuf de paques
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Views/accueil.jsp");
-		
-		
 		Cookie troll = new Cookie("NumCB", "CiaoEtBonDev");
 		response.addCookie(troll);
 		
+		//Recuperation des articles ayant des encheres en cours
 		
+		
+		
+		// Envoi de la request
 		rd.forward(request, response);
 	}
 

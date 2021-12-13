@@ -131,5 +131,10 @@ public abstract class Utilisateur {
 	public void setAdministrateur(boolean administrateur) {
 		this.administrateur = administrateur;
 	}
-
+@Override
+public String toString() {
+	StringBuffer user = new StringBuffer();
+	user.append(this.pseudo).append(this.adresse);
+	return user.toString();
+}
 }

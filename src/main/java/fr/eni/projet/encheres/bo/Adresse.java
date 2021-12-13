@@ -42,4 +42,14 @@ public class Adresse {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+	
+	@Override
+	public String toString() {
+		
+		StringBuffer adresse = new StringBuffer();
+		adresse.append("Adresse : ").append(this.rue + ", ").append(this.codePostal + ", ").append(this.ville);
+		
+		
+		return adresse.toString();
+	}
 }

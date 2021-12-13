@@ -1,6 +1,8 @@
 package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
+import java.text.DateFormat;
+import java.text.Format;
 import java.time.LocalDate;
 
 import fr.eni.projet.encheres.bo.user.Vendeur;
@@ -103,6 +105,17 @@ public class Enchere {
 		this.idEnchere[1]=vendeur.getId();
 	}
 
-
+	@Override
+	public String toString() {
+		StringBuffer enchere = new StringBuffer();
+		
+		enchere.append("Enchere sur : ").append(this.article.getNomArticle()).
+		append(". Vendu par : " +this.article.getUtilisateur().getPseudo()).
+		append(" Acheteur : "+ this.vendeur.getPseudo()).
+		append(" Offre : "+this.montantEnchere).
+		append("  Date : "+ this.dateEnchere);
+		
+		return enchere.toString();
+	}
 
 }
