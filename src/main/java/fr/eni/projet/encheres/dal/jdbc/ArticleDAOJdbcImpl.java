@@ -73,6 +73,8 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		adr.setCodePostal(rs.getString("codePostal"));
 		adr.setVille("ville");
 
+		System.out.println("Génération adresse");
+
 		// génération du vendeur
 		Vendeur vendeur = new Vendeur();
 
@@ -83,19 +85,23 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		vendeur.setEmail(rs.getString("email"));
 		vendeur.setTelephone(rs.getString("telephone"));
 		vendeur.setAdresse(adr);
-		vendeur.setMdp(rs.getString("motDePasse"));
-		vendeur.setCredit(rs.getInt("credit"));
-		vendeur.setAdministrateur(rs.getBoolean("administreur"));
+//		vendeur.setMdp(rs.getString("motDePasse"));
+//		vendeur.setCredit(rs.getInt("credit"));
+//		vendeur.setAdministrateur(rs.getBoolean("administreur"));
+
+		System.out.println("Génération vendeur");
 
 		// génération de la Categorie
 		Categorie cat = new Categorie();
 		cat.setId(rs.getInt("idCategorie"));
 		cat.setNom("libelle");
 
+		System.out.println("Génération Catégorie");
+
 		// génération de l'article
 		Article a = new Article();
 
-		a.setId(rs.getInt("idArticle"));
+		a.setId(rs.getInt("id"));
 		a.setNomArticle(rs.getString("nomArticle"));
 		a.setDescription(rs.getString("description"));
 		a.setDateDebut(rs.getDate("dateDebutEncheres"));
@@ -103,7 +109,10 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		a.setCategorie(cat);
 		a.setUtilisateur(vendeur);
 
+		System.out.println("Génération Article");
+
 		return a;
+
 	}
 
 	@Override
