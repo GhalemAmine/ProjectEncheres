@@ -231,6 +231,35 @@ public class Article {
 		this.cat.getId();
 	}
 
+	/**
+	 * @param id
+	 * @param nomArticle
+	 * @param description
+	 * @param dateDebut
+	 * @param dateFin
+	 * @param prixInitial
+	 * @param prixVente
+	 * @param user
+	 * @param cat
+	 * @param enc
+	 * @param ret
+	 */
+	public Article(Integer id, String nomArticle, String description, Date dateDebut, Date dateFin, int prixInitial,
+			int prixVente, Utilisateur user, Categorie cat, Enchere enc, Retrait ret) {
+		super();
+		this.id = id;
+		this.nomArticle = nomArticle;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.prixVente = prixVente;
+		this.user = user;
+		this.cat = cat;
+		this.enc = enc;
+		this.ret = ret;
+	}
+
 	public Integer getId() {
 		return this.id;
 	}
@@ -295,18 +324,18 @@ public class Article {
 		this.etatVente = etatVente;
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Article [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
-				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
-				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
-				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
-				.append(", idUtilisateur=").append(this.getIdUtilisateur()).append(", user=").append(this.user)
-				.append(", idCategorie=").append(this.getIdCategorie()).append(", cat=").append(this.cat)
-				.append(", enc=").append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=")
-				.append(this.ret).append("]");
-		return builder.toString();
-	}
+//	@Override
+//	public String toString() {
+//		StringBuilder builder = new StringBuilder();
+//		builder.append("Article [id=").append(this.id).append(", nomArticle=").append(this.nomArticle)
+//				.append(", description=").append(this.description).append(", dateDebut=").append(this.dateDebut)
+//				.append(", dateFin=").append(this.dateFin).append(", prixInitial=").append(this.prixInitial)
+//				.append(", prixVente=").append(this.prixVente).append(", etatVente=").append(this.etatVente)
+//				.append(", idUtilisateur=").append(this.getIdUtilisateur()).append(", user=").append(this.user)
+//				.append(", idCategorie=").append(this.getIdCategorie()).append(", cat=").append(this.cat)
+//				.append(", enc=").append(this.enc).append(", listeEnc=").append(this.listeEnc).append(", ret=")
+//				.append(this.ret).append("]");
+//		return builder.toString();
+//	}
 
 }
