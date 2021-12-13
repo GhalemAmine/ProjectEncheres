@@ -7,7 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.eni.projet.encheres.bo.Adresse;
 import fr.eni.projet.encheres.bo.Article;
+import fr.eni.projet.encheres.bo.Categorie;
+import fr.eni.projet.encheres.bo.user.Vendeur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.DALException;
 import fr.eni.projet.encheres.dal.DAOArticle;
@@ -63,29 +66,42 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 	@Override
 	public Article createFromRS(ResultSet rs) throws SQLException {
 
-		System.out.println("Debut recup rs");
+		// génération de l'adresse
+		Adresse adr = new Adresse();
 
+		adr.setRue(rs.getString("rue"));
+		adr.setCodePostal(rs.getString("codePostal"));
+		adr.setVille("ville");
+
+		// génération du vendeur
+		Vendeur vendeur = new Vendeur();
+
+		vendeur.setId(rs.getInt("idUtilisateur"));
+		vendeur.setPseudo(rs.getString("pseudo"));
+		vendeur.setNom(rs.getString("nom"));
+		vendeur.setPrenom(rs.getString("prenom"));
+		vendeur.setEmail(rs.getString("email"));
+		vendeur.setTelephone(rs.getString("telephone"));
+		vendeur.setAdresse(adr);
+		vendeur.setMdp(rs.getString("motDePasse"));
+		vendeur.setCredit(rs.getInt("credit"));
+		vendeur.setAdministrateur(rs.getBoolean("administreur"));
+
+		// génération de la Categorie
+		Categorie cat = new Categorie();
+		cat.setId(rs.getInt("idCategorie"));
+		cat.setNom("libelle");
+
+		// génération de l'article
 		Article a = new Article();
-		System.out.println("Article instancié");
 
-		a.setId(rs.getInt("id"));
-		System.out.println("id ajouté");
-
+		a.setId(rs.getInt("idArticle"));
 		a.setNomArticle(rs.getString("nomArticle"));
-
-		System.out.println("nom ajouté");
-
 		a.setDescription(rs.getString("description"));
 		a.setDateDebut(rs.getDate("dateDebutEncheres"));
 		a.setDateFin(rs.getDate("dateFinEncheres"));
-		a.setPrixInitial(rs.getInt("prixInitial"));
-		a.setPrixVente(rs.getInt("prixVente"));
-
-		System.out.println("prix vente ajouté");
-
-//		a.setIdUtilisateur(rs.getInt("idUtilisateur"));
-//		a.setIdCategorie(rs.getInt("idCategorie"));
-		System.out.println("article complet");
+		a.setCategorie(cat);
+		a.setUtilisateur(vendeur);
 
 		return a;
 	}
@@ -120,9 +136,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			stmt.setString(1, motClef);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
-						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
+				a = createFromRS(rs);
 			}
 			liste.add(a);
 		} catch (SQLException e) {
@@ -140,9 +154,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			stmt.setInt(1, idCategorie);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
-						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
+				a = createFromRS(rs);
 			}
 			liste.add(a);
 
@@ -161,9 +173,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 			stmt.setInt(1, idUtilisateur);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
-				a = new Article(rs.getInt("id"), rs.getString("nomArticle"), rs.getString("description"),
-						rs.getDate("dateDebutEncheres"), rs.getDate("dateFinEncheres"), rs.getInt("prixInitial"),
-						rs.getInt("prixVente"), rs.getInt("idUtilisateur"), rs.getInt("idCategorie"));
+				a = createFromRS(rs);
 			}
 			liste.add(a);
 
