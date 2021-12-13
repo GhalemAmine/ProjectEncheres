@@ -75,6 +75,11 @@ public class Article {
 		this.user.setId(id);
 	}
 
+	public void setUtilisateur(Vendeur vend) {
+		this.user = vend;
+
+	}
+
 //	public void setIdUtilisateur(Utilisateur user) {
 //		this.idUtilisateur = user.getId();
 //	}
@@ -87,6 +92,10 @@ public class Article {
 	public Categorie getCategorie() {
 		this.cat.ajouterArticle(this);
 		return this.cat;
+	}
+
+	public void setCategorie(Categorie cat) {
+		this.cat = cat;
 	}
 
 	public Integer getIdCategorie() {
