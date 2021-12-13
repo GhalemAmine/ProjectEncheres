@@ -36,9 +36,9 @@ public class ServletTestDBArticle extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-System.out.println("ouverture Servlet");
+		System.out.println("ouverture Servlet");
 		try {
-			
+
 			ArticleManager articleManager = new ArticleManager();
 			System.out.println("Manager Chargé");
 
@@ -47,7 +47,6 @@ System.out.println("ouverture Servlet");
 			catalogueArticle = articleManager.getCatalogue();
 			System.out.println("catalogue chargé");
 			System.out.println("nbr d'entrée au catalogue : " + catalogueArticle.size());
-
 
 			request.setAttribute("catalogueArticle", catalogueArticle);
 		} catch (BLLException e) {
