@@ -258,6 +258,7 @@ public class Article {
 		this.cat = cat;
 		this.enc = enc;
 		this.ret = ret;
+
 	}
 
 	public Integer getId() {
