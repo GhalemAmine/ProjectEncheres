@@ -94,7 +94,7 @@ public class ArticleDAOJdbcImpl extends DAOJdbcImpl<Article> implements DAOArtic
 		// génération de la Categorie
 		Categorie cat = new Categorie();
 		cat.setId(rs.getInt("idCategorie"));
-		cat.setNom("libelle");
+		cat.setNom(rs.getString("libelle"));
 
 		System.out.println("Génération Catégorie");
 
