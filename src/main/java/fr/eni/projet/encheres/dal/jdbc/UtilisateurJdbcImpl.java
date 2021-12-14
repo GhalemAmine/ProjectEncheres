@@ -26,6 +26,8 @@ public class UtilisateurJdbcImpl extends DAOJdbcImpl<Utilisateur> implements DAO
 	String sqlSelectAll = "select id, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, credit, administrateur from UTILISATEURS";
 	String sqlUpdate = "update UTILISATEURS set pseudo=?, nom=?, prenom=?, email=?, telephone=?, rue=?, codePostal=?, ville=?, motDePasse=?, credit=?, administrateur=? where id=? ";
 	String sqlTruncate = "truncate table UTILISATEURS";
+	String sqlSelectByPseudo = "select id, pseudo, nom, prenom, email, telephone, rue, codePostal, ville, motDePasse, credit, administrateur from UTILISATEURS where pseudo like ?";
+
 
 	public UtilisateurJdbcImpl() {
 		setSqlDeleteByID(sqlDeleteByID);
@@ -34,6 +36,35 @@ public class UtilisateurJdbcImpl extends DAOJdbcImpl<Utilisateur> implements DAO
 		setSqlTruncate(sqlTruncate);
 		setSqlUpdate(sqlUpdate);
 	}
+	
+	@Override
+	public Vendeur SelectByPseudo(String pseudo) throws DALException {
+		String sql = sqlSelectByPseudo;
+		Vendeur ven = null;
+		try (Connection con = ConnectionProvider.getConnection(); PreparedStatement stmt = con.prepareStatement(sql);) {
+			System.out.println(pseudo);
+			stmt.setString(1, pseudo);
+			try (ResultSet rs = stmt.executeQuery();) {
+
+				
+				if(rs.next()) {
+				ven = (Vendeur) createFromRS(rs);
+				System.out.println(ven);
+				}
+				else {
+					System.err.println("vendeur non trouvé");
+				}
+			}
+
+		} catch (SQLException e) {
+
+			throw new DALException("erreur de requete Select by Pseudo", e);
+		}
+
+		return ven;
+	}
+
+
 
 //	@Override
 //	public List<Utilisateur> selectAll() throws DALException {

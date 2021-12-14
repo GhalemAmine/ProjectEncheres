@@ -23,13 +23,26 @@
 
 
 <div class="wrapper">
-<p>test</p><p>test</p><p>test</p>
-<form method="post" action=#>
+
+<form method="post" action="ServletSignIn">
+
+<label for="pseudo">Identifiant (Pseudo) : </label>
+<c:choose>
+<c:when test="${requestScope.pseudo!=null }">
+<input type="text" name="pseudo" id="pseudo" value="<%=request.getAttribute("pseudo")%>">
+</c:when>
+<c:otherwise>
+<input type="text" name="pseudo" id="pseudo">
+
+</c:otherwise>
+</c:choose>
+
+<label for="mdp">Mot de passe : </label>
+<input type="password" name="mdp" id="mdp">
 
 
-Identifiant : <input type="text">
-Mot de passe : <input type="password">
-<input type="checkbox"> Se souvenir de moi
+<label for="remember">Se souvenir de moi</label>
+<input type="checkbox" name="remember" id ="remember"> 
 
 <a href=#>Mot de passe oublié ?</a>
 

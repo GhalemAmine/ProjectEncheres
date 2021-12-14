@@ -4,9 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.eni.projet.encheres.bo.user.Utilisateur;
+import fr.eni.projet.encheres.bo.user.Vendeur;
 import fr.eni.projet.encheres.dal.DALException;
 import fr.eni.projet.encheres.dal.DAO;
 import fr.eni.projet.encheres.dal.DAOFactory;
+import fr.eni.projet.encheres.dal.DAOUtilisateur;
 
 /**
  * @author William "Gaspode" Freyer
@@ -79,6 +81,20 @@ public class UtilisateurManager implements AbstractManager<Utilisateur> {
 
 		try {
 			user = this.daoUtilisateur.selectByID(index);
+		} catch (DALException e) {
+			System.err.println("echec récupération utilisateur");
+			throw new BLLException("echec récupération utilisateur", e);
+		}
+
+		return user;
+
+	}
+	
+	public Vendeur getVendeurViaPseudo(String pseudo) throws BLLException {
+		Vendeur user = null;
+
+		try {
+			user = ((DAOUtilisateur) this.daoUtilisateur).SelectByPseudo(pseudo);
 		} catch (DALException e) {
 			System.err.println("echec récupération utilisateur");
 			throw new BLLException("echec récupération utilisateur", e);
