@@ -23,21 +23,21 @@
 <div class="nomAppli"> ENI-Encheres</div>
 <h1 class="titrePage">Liste des enchères</h1>
 
-<c:if test="${!sessionScope.connecte}">
-<div class="signIn"> 
-<a href="ServletSignIn">S'inscrire - Se connecter</a>
-</div>
-</c:if>
-<c:if test="${sessionScope.connecte}">
-<div class="signIn"> 
-<a href="ServletSignIn">Bonjour <c:out value="${sessionScope.user.getPseudo()}"></c:out>  </a>
-</div>
-</c:if>
+
 
 </header>
 <main>
 
-
+<c:if test="${!sessionScope.connecte}">
+<div class="wrapper"> 
+<%@ include file="fragmentBandeauUserNonConnecte.jspf" %>
+</div>
+</c:if>
+<c:if test="${sessionScope.connecte}">
+<div class="wrapper"> 
+<%@ include file="fragmentBandeauUserConnecte.jspf" %>
+</div>
+</c:if>
 <nav class="recherche">
 <form class="champRecherche">
 <input type="search" placeholder="Le nom de l'article contient" >

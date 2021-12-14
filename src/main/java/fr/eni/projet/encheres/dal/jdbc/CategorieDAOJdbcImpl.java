@@ -51,6 +51,7 @@ public class CategorieDAOJdbcImpl extends DAOJdbcImpl<Categorie> implements DAOC
 		Categorie categorie = new Categorie();
 		categorie.setId(rs.getInt("id"));
 		categorie.setNom(rs.getString("libelle"));
+		System.out.println(rs.getString("libelle"));
 		
 //			al.setNom(rs.getString(2));
 //			al.setIdRepas(3);
