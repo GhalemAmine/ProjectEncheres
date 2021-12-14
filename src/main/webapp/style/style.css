@@ -146,6 +146,16 @@ div .wrapper {
   display: flex;
 }
 
+div .logout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 footer {
   width: 90%;
 }
