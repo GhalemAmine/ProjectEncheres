@@ -59,11 +59,7 @@
 
 
 <div class="listeEncheres">
-<div class="article">Un article</div>
-<div class="article">Un autre article</div>
-<div class="article">Encore un autre article</div>
-<div class="article">Pourquoi j'en ai fait quatre ?</div>
-
+<%@include file="listeArticle.jspf" %>
 
 </div>
 

@@ -54,7 +54,7 @@ public class ServletAffichageListeArticle extends HttpServlet {
 		}
 
 		// Transfert de l'affichage à la JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Views/listeArticle.jspf");
+		RequestDispatcher rd = request.getRequestDispatcher("ServletAccueil");
 		rd.forward(request, response);
 
 	}

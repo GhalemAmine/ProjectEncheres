@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="fr.eni.projet.encheres.bo.Article"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <h2>Affichage liste d'articles</h2>
 
 
@@ -12,12 +13,12 @@
 			<ul>
 				<li>Nom : ${Article.nomArticle}</li>
 				<li>Description : ${Article.description}</li>
-				<li>Date début enchère : ${Article.dateDebut}</li>
-				<li>Date fin enchère : ${Article.dateFin}</li>
+				<li>Date dÃ©but enchÃ¨re : ${Article.dateDebut}</li>
+				<li>Date fin enchÃ¨re : ${Article.dateFin}</li>
 				<li>Prix Initial : ${Article.prixInitial}</li>
-				<%-- <li>TODO dernière enchère</li> --%>
+				<%-- <li>TODO derniÃ¨re enchÃ¨re</li> --%>
 				<li>Vendeur : ${Article.getUtilisateur().pseudo}</li>
-				<li>Catégorie : ${Article.getCategorie().nom}</li>
+				<li>CatÃ©gorie : ${Article.getCategorie().nom}</li>
 			</ul> 
 		</c:forEach>
 	</c:if>
