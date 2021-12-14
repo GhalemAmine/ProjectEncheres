@@ -1,8 +1,6 @@
 package fr.eni.projet.encheres.bo;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.Format;
 import java.time.LocalDate;
 
 import fr.eni.projet.encheres.bo.user.Vendeur;

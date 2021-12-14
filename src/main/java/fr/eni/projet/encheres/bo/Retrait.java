@@ -41,5 +41,17 @@ public class Retrait {
 
 	public void setAdresse(Adresse adresse) {
 		this.adresse = adresse;
+	}		
+
+	
+	@Override
+		public String toString() {
+			StringBuffer retrait = new StringBuffer("Retrait Article ");
+			retrait.append(this.article.getNomArticle()+ " ");
+			retrait.append("Adresse : " + this.adresse);
+			return retrait.toString();
 	}
+
+
+
 }

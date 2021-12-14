@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
-import fr.eni.projet.encheres.bll.ArticleManager;
-import fr.eni.projet.encheres.bll.BLLException;
 import fr.eni.projet.encheres.bo.Adresse;
 import fr.eni.projet.encheres.bo.Article;
+import fr.eni.projet.encheres.bo.Categorie;
 import fr.eni.projet.encheres.bo.Retrait;
+import fr.eni.projet.encheres.bo.user.Vendeur;
 import fr.eni.projet.encheres.dal.ConnectionProvider;
 import fr.eni.projet.encheres.dal.DALException;
 import fr.eni.projet.encheres.dal.DAORetrait;
@@ -23,8 +23,25 @@ public class RetraitDAOJdbcImpl extends DAOJdbcImpl<Retrait> implements DAORetra
 
 	String sqlDeleteByID = "delete from Retraits where idArticle=?";
 	String sqlInsert = "insert into Retraits values (?, ?, ?, ?)";
-	String sqlSelectByID = "select idArticle, rue, CodePostal, ville from Retraits where idArticle=?";
-	String sqlSelectAll = "select idArticle, rue, CodePostal, ville from Retraits";
+	String sqlSelectByID = "select idArticle, nomArticle, description, dateDebutEncheres, "
+			+ "dateFinEncheres, prixInitial, prixVente,"
+			+ "idCategorie, libelle, "
+			+ "idUtilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal, "
+			+ "rue as rueRet, CodePostal as cpRet, ville as villeRet "
+			+ "from RETRAITS"
+			+ "INNER JOIN ARTICLES on idArticle=id "
+			+ "INNER JOIN CATEGORIES on idCategorie = CATEGORIE.id "
+			+ " INNER JOIN UTILISATEURS on idUtilisateur = UTILISATEURS.id"
+			+ " WHERE idArticle=?";
+	String sqlSelectAll = "select idArticle, nomArticle, description, dateDebutEncheres, "
+			+ "dateFinEncheres, prixInitial, prixVente,"
+			+ "idCategorie, libelle, "
+			+ "idUtilisateur, pseudo, nom, prenom, email, telephone, rue, codePostal, "
+			+ "rue as rueRet, CodePostal as cpRet, ville as villeRet "
+			+ "from RETRAITS"
+			+ "INNER JOIN ARTICLES on idArticle=id "
+			+ "INNER JOIN CATEGORIES on idCategorie = CATEGORIE.id "
+			+ " INNER JOIN UTILISATEURS on idUtilisateur = UTILISATEURS.id";
 	String sqlUpdate = "update Retraits set rue=?, CodePostal=?, ville=? where idArticle=? ";
 	String sqlTruncate = "truncate table Retraits";
 
@@ -63,32 +80,57 @@ public class RetraitDAOJdbcImpl extends DAOJdbcImpl<Retrait> implements DAORetra
 
 	@Override
 	public Retrait createFromRS(ResultSet rs) throws SQLException {
-		Retrait ret = new Retrait();
-		Adresse adr = new Adresse();
 		
 		
-		Article art = null;
-		try {
-			ArticleManager artMan = new ArticleManager();
-			art = artMan.getItem(rs.getInt(1));
-		} catch (BLLException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-		
-		adr.setRue(rs.getString(2));
-		adr.setCodePostal(rs.getString(3));
-		adr.setVille(rs.getString(4));
-		
-		ret.setArticle(art);
-		ret.setAdresse(adr);
-		
-		return ret;
-	}
+		// génération de l'adresse du Vendeur
+
+				Adresse adr = new Adresse();
+
+				adr.setRue(rs.getString("rue"));
+				adr.setCodePostal(rs.getString("codePostal"));
+				adr.setVille("ville");
+
+				// génération du vendeur
+				Vendeur vendeur = new Vendeur();
+
+				vendeur.setId(rs.getInt("idUser"));
+				vendeur.setPseudo(rs.getString("pseudo"));
+				vendeur.setNom(rs.getString("nom"));
+				vendeur.setPrenom(rs.getString("prenom"));
+				vendeur.setEmail(rs.getString("email"));
+				vendeur.setTelephone(rs.getString("telephone"));
+				vendeur.setAdresse(adr);
+				vendeur.setMdp(rs.getString("motDePasse"));
+				vendeur.setCredit(rs.getInt("credit"));
+
+				
+				//génération de la Categorie
+
+				Categorie cat = new Categorie();
+				cat.setId(rs.getInt("idCategorie"));
+				cat.setNom("libelle");
+		//génération de l'article
+				Article art = new Article();
+
+				art.setId(rs.getInt("idArticle"));
+				art.setNomArticle(rs.getString("nomArticle"));
+				art.setDescription(rs.getString("description"));
+				art.setDateDebut(rs.getDate("dateDebutEncheres"));
+				art.setDateFin(rs.getDate("dateFinEncheres"));
+				art.setCategorie(cat);
+				art.setUtilisateur(vendeur);
+
+		//génération du Retrait : 
+				Retrait ret = new Retrait();
+				ret.setArticle(art);
+		//modification de l'adresse pour qu'elle soit adresse Retrait
+				adr.setRue(rs.getString("rueRet"));
+				adr.setCodePostal(rs.getString("cpRet"));
+				adr.setVille("villeRet");
+				ret.setAdresse(adr);
+
+				return ret;
+			}
 
 	@Override
 	public void delete(Retrait ret) throws DALException {

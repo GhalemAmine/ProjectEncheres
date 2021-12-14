@@ -32,11 +32,12 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 	String sqlInsert = "insert into Encheres(idUtilisateur, idArticle, dateEnchere, montantEnchere) values (?,?,?,?)";
 	String sqlSelectByID = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
 							+ " description, dateDebutEncheres, dateFinEncheres," 
-							+ " idCategorie,Encheres.idUtilisateur as idUser,"
+							+ " idCategorie, libelle, Encheres.idUtilisateur as idUser,"
 							+ " pseudo, nom, prenom, email, telephone, rue, codePostal, " 
 							+ "ville, motDePasse, credit, administrateur "
 							+ "from ENCHERES " 
 							+ "inner join ARTICLES on idArticle=Articles.id "
+							+ " inner join CATEGORIES on idCategorie=Categories.id"
 							+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id "
 							+ "where Encheres.idUtilisateur = ? AND idArticle = ?";
 	String sqlSelectAll = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
@@ -51,10 +52,11 @@ public class EnchereJdbcImpl extends DAOJdbcImpl<Enchere> implements DAOEnchere 
 	String sqlTruncate = "truncate table ENCHERES";
 	String sqlSelectByArticle = "select dateEnchere, montantEnchere, idArticle, nomArticle,"
 								+ " description, dateDebutEncheres, dateFinEncheres,"
-								+ " idCategorie,Encheres.idUtilisateur as idUser,"
+								+ " idCategorie, libelle, Encheres.idUtilisateur as idUser,"
 								+ " pseudo, nom, prenom, email, telephone, rue, codePostal, "
 								+ "ville, motDePasse, credit, administrateur "
-								+ "from ENCHERES " 
+								+ "from ENCHERES "
+								+ "inner join CATEGORIES on idCategorie=Categories.id" 
 								+ "inner join ARTICLES on idArticle=Articles.id "
 								+ "inner join UTILISATEURS on ENCHERES.idUtilisateur=UTILISATEURS.id "
 								+ "where idArticle = ?";
