@@ -5,6 +5,8 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -35,59 +37,28 @@
 </header>
 <main>
 
-<% 
-	
-	List<Article> catalogueArticle = (List<Article>)request.getAttribute("catalogueArticle");
-	if(catalogueArticle!=null) {
-%>
-	<table>
-		<tbody>
-			<%
-				for(Article a : catalogueArticle) {
-					Vendeur vend = (Vendeur)a.getUtilisateur();
-					Adresse ads = (Adresse)a.getAdresse();
-					Categorie cat = (Categorie)a.getCategorie();
-					
-			%>
-			<tr>
-				<td><%=a.getId() %></td>
-				<td><%=a.getNomArticle() %></td>
-				<td><%=a.getDescription() %></td>
-				<td><%=a.getDateDebut() %></td>
-				<td><%=a.getDateFin() %></td>
-				<td><%=vend.getId() %></td>
-				<td><%=vend.getNom() %></td>
-				<td><%=vend.getPrenom() %></td>
-				<td><%=vend.getPseudo() %></td>
-				<td><%=vend.getEmail() %></td>
-<%-- 				<td><%=ads.getRue() %></td>
-				<td><%=ads.getCodePostal() %></td>
-				<td><%=ads.getVille() %></td> --%>
-				<td><%=cat.getId() %></td>
-				<td><%=cat.getNom() %></td>
-				
-								
-			</tr>
-			<%
-				}
-			%>
-		</tbody>
-		<%
-		}
-	
-		else {
-		%>
-	
-		<p> Aucun article trouvé</p>
-		
-		<%
-		}
-		%>
-	</table>
+<h2>Affichage liste d'articles</h2>
 
 
+	<c:if test="${!empty catalogueArticles}">
+		<c:forEach var="Article" items="${catalogueArticles}">
+			<ul>
+				<li>Nom : ${Article.nomArticle}</li>
+				<li>Description : ${Article.description}</li>
+				<li>Date début enchère : ${Article.dateDebut}</li>
+				<li>Date fin enchère : ${Article.dateFin}</li>
+				<li>Prix Initial : ${Article.prixInitial}</li>
+				<%-- <li>TODO dernière enchère</li> --%>
+				<li>Vendeur : ${Article.getUtilisateur().pseudo}</li>
+				<li>Catégorie : ${Article.getCategorie().nom}</li>
+			</ul> 
+		</c:forEach>
+	</c:if>
+	<c:if test="${empty Article}">
+		<p>Aucune liste d'articles.</p>
+	</c:if>
 
-
+<%-- <%@ include file="fragmentListeArticle.jsp" %> --%>
 
 </main>
 <footer>copyright - Greg / Spague - Les Chiens Prodiges </footer>
