@@ -4,24 +4,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<!-- <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" >
 <meta name="description" content="">
 <meta name="author" content="Will E. Cefes">
 
-<title>Accueil</title>
 
-<!-- CSS -->
+
+CSS
 <link href="style/reset.css" rel="stylesheet">
-<link href="style/style.css" rel="stylesheet">
-
-
+<link href="style/style.css" rel="stylesheet"> -->
+<%@ include file="/WEB-INF/include/global/head.jspf"%> 
+<title>Accueil</title>
 
 </head>
 <body>
 <header>
-<div class="nomAppli"> ENI-Encheres</div>
-<h1 class="titrePage">Liste des enchères</h1>
+<%@ include file = "/WEB-INF/include/global/header.html" %>
+
+
+<h1 class="titrePage">Accueil</h1>
 
 
 
@@ -67,7 +69,7 @@
 
 
 
-</main>
-<footer>copyright - Will E. Cefes - Et les autres qui mettront leur nom aussi ou alors on aura décidé d'un nom d'entreprise </footer>
+</main> <footer> <%@ include file = "/WEB-INF/include/global/footer.html" %></footer>
+
 </body>
 </html>

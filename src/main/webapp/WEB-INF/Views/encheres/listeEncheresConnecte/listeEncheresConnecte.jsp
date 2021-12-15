@@ -7,7 +7,7 @@
 <title>listeEncheresConnecte</title>
 </head>
 <body>
-<header>%@ include file = "/WEB-INF/include/header.html" %></header>
+<header><%@ include file = "/WEB-INF/include/global/header.html" %></header>
 <h1> Liste des enchères</h1>
 
 <!-- barreDeRecherche -->
@@ -23,5 +23,5 @@ Bouton mes ventes terminées-->
 <!-- listeEncheres -->
 <!-- Bouton Rechercher -->
 </body>
-<%@ include file = "/WEB-INF/include/footer.html" %>
+<%@ include file = "/WEB-INF/include/global/footer.html" %>
 </html>

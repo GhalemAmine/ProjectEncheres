@@ -1,30 +1,28 @@
-package fr.eni.projet.encheres.servlets;
+package fr.eni.projet.encheres.servlets.tests;
 
 import java.io.IOException;
-import java.util.List;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.eni.projet.encheres.bll.ArticleManager;
 import fr.eni.projet.encheres.bll.BLLException;
-import fr.eni.projet.encheres.bo.Article;
+import fr.eni.projet.encheres.bll.CategorieManager;
+import fr.eni.projet.encheres.bo.Categorie;
 
 /**
- * Servlet implementation class ServletTestDBArticle
+ * Servlet implementation class ServeletTestJDBCategorie
  */
-@WebServlet("/ServletTestDBArticle")
-public class ServletTestDBArticle extends HttpServlet {
+@WebServlet("/ServeletTestJDBCategorie")
+
+public class ServeletTestJDBCategorie extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletTestDBArticle() {
+	public ServeletTestJDBCategorie() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -33,30 +31,21 @@ public class ServletTestDBArticle extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("ouverture Servlet");
+
 		try {
+			Categorie jeu = new Categorie("Cheval");
+			CategorieManager categorieManager = new CategorieManager();
 
-			ArticleManager articleManager = new ArticleManager();
-			System.out.println("Manager Chargé");
-
-			List<Article> catalogueArticle = null;
-
-			catalogueArticle = articleManager.getCatalogue();
-			System.out.println("catalogue chargé");
-			System.out.println("nbr d'entrée au catalogue : " + catalogueArticle.size());
-
-			request.setAttribute("catalogueArticle", catalogueArticle);
+			categorieManager.addItem(jeu);
+			// categorieManager.updateItem(Jeu);
+			// categorieManager.delateItem(Jeu);
 		} catch (BLLException e) {
-			System.err.println(e);
+			e.printStackTrace();
 		}
 
-		// Transfert de l'affichage à la JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Views/article.jsp");
-		rd.forward(request, response);
-
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
