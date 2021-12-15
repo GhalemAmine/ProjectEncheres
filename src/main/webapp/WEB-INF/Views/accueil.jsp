@@ -14,13 +14,13 @@
 CSS
 <link href="style/reset.css" rel="stylesheet">
 <link href="style/style.css" rel="stylesheet"> -->
-<%@ include file="/WEB-INF/include/global/head.jspf"%> 
+<%@include file="include/global/head.html"%>
 <title>Accueil</title>
 
 </head>
 <body>
 <header>
-<%@ include file = "/WEB-INF/include/global/header.html" %>
+<%@ include file = "include/global/header.html" %>
 
 
 <h1 class="titrePage">Accueil</h1>
@@ -32,12 +32,12 @@ CSS
 
 <c:if test="${!sessionScope.connecte}">
 <div class="wrapper"> 
-<%@ include file="fragmentBandeauUserNonConnecte.jspf" %>
+<%@ include file="include/user/fragmentBandeauUserNonConnecte.jspf" %>
 </div>
 </c:if>
 <c:if test="${sessionScope.connecte}">
 <div class="wrapper"> 
-<%@ include file="fragmentBandeauUserConnecte.jspf" %>
+<%@ include file="include/user/fragmentBandeauUserConnecte.jspf" %>
 </div>
 </c:if>
 <nav class="recherche">
@@ -61,7 +61,7 @@ CSS
 
 
 <div class="listeEncheres">
-<%@include file="listeArticle.jspf" %>
+<%@include file="include/articles/listeArticle.jspf" %>
 
 </div>
 
@@ -69,7 +69,7 @@ CSS
 
 
 
-</main> <footer> <%@ include file = "/WEB-INF/include/global/footer.html" %></footer>
+</main> <footer> <%@ include file = "include/global/footer.html" %></footer>
 
 </body>
 </html>
