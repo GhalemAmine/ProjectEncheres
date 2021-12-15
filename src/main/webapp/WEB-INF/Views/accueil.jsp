@@ -14,13 +14,13 @@
 CSS
 <link href="style/reset.css" rel="stylesheet">
 <link href="style/style.css" rel="stylesheet"> -->
-<%@include file="include/global/head.html"%>
+<%@include file="include/global/head.jspf"%>
 <title>Accueil</title>
 
 </head>
 <body>
 <header>
-<%@ include file = "include/global/header.html" %>
+<%@ include file = "include/global/header.jspf" %>
 
 
 <h1 class="titrePage">Accueil</h1>
@@ -69,7 +69,7 @@ CSS
 
 
 
-</main> <footer> <%@ include file = "include/global/footer.html" %></footer>
+</main> <footer> <%@ include file = "include/global/footer.jspf" %></footer>
 
 </body>
 </html>

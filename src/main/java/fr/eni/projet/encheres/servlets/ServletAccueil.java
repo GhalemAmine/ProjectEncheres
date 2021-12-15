@@ -31,7 +31,7 @@ public class ServletAccueil extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Preparation du dispatcher + oeuf de paques
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/Views/accueil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("ServletAffichageListeArticle");
 		
 //		ServletAffichageListeArticle servAff = new ServletAffichageListeArticle();
 //		servAff.getServletContext().getRealPath(getServletInfo())
